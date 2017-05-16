@@ -32,15 +32,7 @@ void ShooterGameApp::shutdown() {
 }
 
 void ShooterGameApp::update(float deltaTime) {
-
-	// input example
-	aie::Input* input = aie::Input::getInstance();
-
 	m_gameStateManager->updateGameStates(deltaTime);
-
-	// exit the application
-	//if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
-	//	quit();
 }
 
 void ShooterGameApp::draw() {

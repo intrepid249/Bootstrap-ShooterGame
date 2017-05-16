@@ -55,8 +55,8 @@ void GameStateManager::popState() {
 IGameState * GameStateManager::getTopState() {
 	if (m_activeStateStack.size() > 0)
 		return m_activeStateStack.back();
-	else
-		return nullptr;
+	
+	return nullptr;
 }
 
 void GameStateManager::processCommands() {

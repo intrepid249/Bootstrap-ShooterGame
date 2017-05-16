@@ -15,12 +15,11 @@ PauseState::PauseState(ShooterGameApp *app) : IGameState(app) {
 PauseState::~PauseState() {}
 
 void PauseState::update(float dt) {
-	if (getApp()->getGameStateManager()->getTopState() != this) return;
+	//if (getApp()->getGameStateManager()->getTopState() != this) return;
 
 	aie::Input *input = aie::Input::getInstance();
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE)) {
 		getApp()->getGameStateManager()->popState();
-		getApp()->getGameStateManager()->pushState((int)eGameStateID::GAME_STATE);
 	}
 }
 

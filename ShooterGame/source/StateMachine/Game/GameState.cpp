@@ -22,6 +22,10 @@ void GameState::update(float dt) {
 	m_elapsedTime += dt;
 		
 	aie::Input *input = aie::Input::getInstance();
+	// Exit the application
+	//if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
+	//	getApp()->quit();
+	// Pause the game
 	if (input->isKeyDown(aie::INPUT_KEY_P)) {
 		getApp()->getGameStateManager()->pushState((int)eGameStateID::PAUSE_STATE);
 	}

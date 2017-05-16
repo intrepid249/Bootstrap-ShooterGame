@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Menu\Menu.h" />
     <ClInclude Include="include\ResourceManager\ErrorManager.h" />
     <ClInclude Include="include\ResourceManager\ResourceLoader.h" />
     <ClInclude Include="include\ResourceManager\ResourceManager.h" />
@@ -21,8 +22,11 @@
     <ClInclude Include="include\StateMachine\Game\IGameState.h" />
     <ClInclude Include="include\StateMachine\Game\PauseState.h" />
     <ClInclude Include="include\StateMachine\Game\SplashState.h" />
+    <ClInclude Include="include\Menu\MenuBtn.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Menu\Menu.cpp" />
+    <ClCompile Include="source\Menu\MenuBtn.cpp" />
     <ClCompile Include="source\StateMachine\Game\PauseState.cpp" />
     <ClCompile Include="source\StateMachine\Game\GameStateManager.cpp" />
     <ClCompile Include="source\StateMachine\Game\GameState.cpp" />
