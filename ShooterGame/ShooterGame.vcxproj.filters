@@ -33,6 +33,18 @@
     <ClInclude Include="include\StateMachine\Game\GameStateManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\StateMachine\Game\PauseState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ResourceManager\ErrorManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ResourceManager\ResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ResourceManager\ResourceLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -48,6 +60,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\StateMachine\Game\GameStateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\StateMachine\Game\PauseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

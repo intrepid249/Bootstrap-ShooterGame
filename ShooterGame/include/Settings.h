@@ -12,5 +12,5 @@
 #pragma endregion
 
 #pragma region Game State Manager
-enum class eGameStateID { SPLASH_STATE, GAME_STATE };
+enum class eGameStateID { SPLASH_STATE, GAME_STATE, PAUSE_STATE };
 #pragma endregion

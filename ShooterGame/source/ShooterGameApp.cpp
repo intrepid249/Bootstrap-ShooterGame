@@ -7,13 +7,12 @@
 
 #include <StateMachine\Game\SplashState.h>
 #include <StateMachine\Game\GameState.h>
+#include <StateMachine\Game\PauseState.h>
 
 ShooterGameApp::ShooterGameApp() {
-	
 }
 
 ShooterGameApp::~ShooterGameApp() {
-
 }
 
 bool ShooterGameApp::startup() {
@@ -22,9 +21,9 @@ bool ShooterGameApp::startup() {
 	m_gameStateManager = std::unique_ptr<GameStateManager>(new GameStateManager());
 	m_gameStateManager->setState((int)eGameStateID::SPLASH_STATE, new SplashState(this));
 	m_gameStateManager->setState((int)eGameStateID::GAME_STATE, new GameState(this));
+	m_gameStateManager->setState((int)eGameStateID::PAUSE_STATE, new PauseState(this));
 
 	m_gameStateManager->pushState((int)eGameStateID::SPLASH_STATE);
-	//m_gameStateManager->pushState((int)eGameStateID::GAME_STATE);4
 
 	return true;
 }
@@ -40,8 +39,8 @@ void ShooterGameApp::update(float deltaTime) {
 	m_gameStateManager->updateGameStates(deltaTime);
 
 	// exit the application
-	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
-		quit();
+	//if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
+	//	quit();
 }
 
 void ShooterGameApp::draw() {

@@ -1,21 +1,19 @@
 #pragma once
-#include "IGameState.h"
+#include <StateMachine\Game\IGameState.h>
 #include <memory>
 
 namespace aie {
 	class Font;
 }
 
-class GameState : public IGameState {
+class PauseState : public IGameState {
 public:
-	GameState(ShooterGameApp *app);
-	virtual ~GameState();
+	PauseState(ShooterGameApp *app);
+	virtual ~PauseState();
 
 	virtual void update(float dt);
 	virtual void render(aie::Renderer2D *renderer);
-
-protected:
+private:
 	std::unique_ptr<aie::Font>	m_font;
-	float m_elapsedTime;
 };
 
