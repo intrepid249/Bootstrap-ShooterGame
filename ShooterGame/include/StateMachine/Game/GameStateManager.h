@@ -45,4 +45,3 @@ private:
 	std::vector<Command> m_commands;
 #pragma endregion
 };
-

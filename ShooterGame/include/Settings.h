@@ -22,10 +22,10 @@ struct MPoint {
 	int x, y;
 };
 
-struct RECT {
+struct MRECT {
 	float x, y, width, height;
 
-	bool intersects(const RECT &a_other) {
+	bool intersects(const MRECT &a_other) {
 		if (x  < a_other.x - a_other.width || x > a_other.x + a_other.width) return false;
 		if (y < a_other.y - a_other.height || y > a_other.y + a_other.height) return false;
 
