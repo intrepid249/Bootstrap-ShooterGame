@@ -27,6 +27,4 @@ protected:
 
 	std::unique_ptr<aie::Renderer2D>	m_renderer;
 	std::unique_ptr<GameStateManager>	m_gameStateManager;
-
-
 };

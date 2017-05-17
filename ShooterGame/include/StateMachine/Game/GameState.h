@@ -17,7 +17,5 @@ public:
 protected:
 	std::unique_ptr<aie::Font>	m_font;
 	float m_elapsedTime;
-
-	unsigned int m_fade;
 };
 

@@ -19,7 +19,7 @@ void SplashState::update(float dt) {
 	m_elapsedTime += dt;
 	if (m_elapsedTime >= 2.0f) {
 		getApp()->getGameStateManager()->popState();
-		getApp()->getGameStateManager()->pushState((int)eGameStateID::GAME_STATE);
+		getApp()->getGameStateManager()->pushState((int)eGameStateID::MAIN_MENU_STATE);
 	}
 }
 

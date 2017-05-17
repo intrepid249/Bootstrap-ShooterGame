@@ -2,6 +2,8 @@
 #include <Settings.h>
 #include <functional>
 #include <string>
+#include <Vector4.h>
+#include <Colour.h>
 
 namespace aie {
 	class Texture;
@@ -28,8 +30,6 @@ public:
 
 	bool hasFocus(MPoint mousePos);
 
-	void setTint(unsigned int colour);
-
 	MRECT getBounds();
 
 private:
@@ -39,6 +39,6 @@ private:
 	aie::Texture	*m_tex;
 	aie::Font		*m_font;
 
-	unsigned int m_tintColour;
+	Colour m_tintColour;
 };
 

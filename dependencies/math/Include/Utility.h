@@ -15,3 +15,6 @@ LIB_API T radToDeg(T radians);
 
 template <typename T>
 LIB_API Vector2<T> LinearHalf(const Vector2<T>& p1, const Vector2<T>& p2);
+
+template <typename T>
+LIB_API T clamp(const T& val, const T& min, const T& max);

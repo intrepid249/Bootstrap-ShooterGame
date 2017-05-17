@@ -24,10 +24,6 @@ bool MenuBtn::hasFocus(MPoint mousePos) {
 	return m_bounds.contains(mousePos);
 }
 
-void MenuBtn::setTint(unsigned int colour) {
-	m_tintColour = colour;
-}
-
 MRECT MenuBtn::getBounds() {
 	return m_bounds;
 }

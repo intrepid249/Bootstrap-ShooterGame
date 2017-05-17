@@ -10,7 +10,6 @@
 GameState::GameState(ShooterGameApp *app) : IGameState(app){
 	m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
 	m_elapsedTime = 0;
-	m_fade = 0xffffffff; // fade out
 }
 
 GameState::~GameState() {
@@ -20,9 +19,6 @@ void GameState::update(float dt) {
 	if (getApp()->getGameStateManager()->getTopState() != this) return;
 
 	m_elapsedTime += dt;
-
-	// Fade out
-	m_fade = ((m_fade & 0x000000ff) > 0x0) ? ((m_fade & 0x000000ff)-0x1) | 0xffffff00 : 0x00000000;
 		
 	aie::Input *input = aie::Input::getInstance();
 	/// Exit the application
@@ -40,7 +36,4 @@ void GameState::render(aie::Renderer2D * renderer) {
 
 	renderer->drawText(m_font.get(), buffer, 10, 30);
 	renderer->drawText(m_font.get(), "Game State", 10, 10);
-
-	renderer->setRenderColour(m_fade);
-	renderer->drawBox(500, 500, 40, 40);
 }
