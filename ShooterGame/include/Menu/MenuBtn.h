@@ -4,6 +4,7 @@
 #include <string>
 #include <Vector4.h>
 #include <Colour.h>
+#include <memory>
 
 namespace aie {
 	class Texture;
@@ -20,7 +21,7 @@ public:
 	* @param link - function pointer to bind to the onClick callback
 	* @param x, y, width, height - the boundaries of the button
 	* @param tex - a pointer to the background texture that will be used (memory handled elsewhere)*/
-	MenuBtn(const char *labelText, aie::Font *btnFont, std::function<void()> onClickCallback, 
+	MenuBtn(const char *labelText, std::function<void()> onClickCallback, 
 		float x = 0, float y = 0, float width = 0, float height = 0, aie::Texture *tex = nullptr);
 	~MenuBtn();
 
@@ -37,7 +38,7 @@ private:
 	std::string m_labelText;
 
 	aie::Texture	*m_tex;
-	aie::Font		*m_font;
+	std::unique_ptr<aie::Font> m_font;
 
 	Colour m_tintColour;
 };

@@ -28,6 +28,8 @@ public:
 
 	void addButton(std::unique_ptr<MenuBtn> btn);
 
+	MRECT getBounds() { return m_bounds; }
+
 private:
 	std::unique_ptr<aie::Texture>			m_titleImage;
 	float m_titleAnimTimer;
@@ -35,9 +37,12 @@ private:
 	std::unique_ptr<aie::Font>				m_titleFont;
 	const char *m_titleText;
 	bool m_useSpriteSheet;
-	
+	float m_titleWidth, m_titleHeight;
+
 	std::vector<std::unique_ptr<MenuBtn>>	m_buttons;
 
 	MRECT m_bounds;
+
+	const float TOP_BORDER_PADDING = 50;
 };
 

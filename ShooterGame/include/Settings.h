@@ -2,9 +2,9 @@
 
 #pragma region Application Settings
 #ifdef _DEBUG
-	#define APPTITLE "Base Defender - (Debug)"
+	#define APPTITLE "Endless - (Debug)"
 #else
-	#define APPTITLE "Base Defender"
+	#define APPTITLE "Endless"
 #endif // _DEBUG
 #define SCREENWIDTH 1080
 #define SCREENHEIGHT 720
