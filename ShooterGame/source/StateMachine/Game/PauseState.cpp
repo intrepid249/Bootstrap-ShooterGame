@@ -18,7 +18,7 @@ void PauseState::update(float dt) {
 	//if (getApp()->getGameStateManager()->getTopState() != this) return;
 
 	aie::Input *input = aie::Input::getInstance();
-	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE)) {
+	if (input->wasKeyPressed(aie::INPUT_KEY_ESCAPE)) {
 		getApp()->getGameStateManager()->popState();
 	}
 }

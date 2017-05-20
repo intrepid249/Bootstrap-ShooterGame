@@ -25,7 +25,7 @@ void GameState::update(float dt) {
 	//if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
 	//	getApp()->quit();
 	/// Pause the game
-	if (input->isKeyDown(aie::INPUT_KEY_P)) {
+	if (input->wasKeyPressed(aie::INPUT_KEY_ESCAPE)) {
 		getApp()->getGameStateManager()->pushState((int)eGameStateID::PAUSE_STATE);
 	}
 }

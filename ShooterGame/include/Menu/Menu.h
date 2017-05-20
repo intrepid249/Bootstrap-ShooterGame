@@ -29,6 +29,7 @@ public:
 	void addButton(std::unique_ptr<MenuBtn> btn);
 
 	MRECT getBounds() { return m_bounds; }
+	float getNextButtonY() { return m_nextButtonY; }
 
 private:
 	std::unique_ptr<aie::Texture>			m_titleImage;
@@ -43,6 +44,8 @@ private:
 
 	MRECT m_bounds;
 
-	const float TOP_BORDER_PADDING = 50;
+	float m_nextButtonY = 0;
+
+	const float TOP_BORDER_PADDING = 75;
 };
 

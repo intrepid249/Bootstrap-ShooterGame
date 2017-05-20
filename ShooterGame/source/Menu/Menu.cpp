@@ -3,6 +3,7 @@
 #include <Font.h>
 #include <Renderer2D.h>
 #include <Menu\MenuBtn.h>
+#include <Input.h>
 
 Menu::Menu() {
 }
@@ -13,14 +14,28 @@ Menu::Menu(aie::Texture * titleImage, float x, float y, float width, float heigh
 
 Menu::Menu(const char * title, float x, float y, float width, float height)
 	: m_titleImage(nullptr), m_bounds({ x, y, width, height }), m_titleAnimTimer(0), m_titleText(title) {
-	m_titleFont = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 60);
+	float fontSize = 60;
+	m_titleFont = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", fontSize);
+	m_nextButtonY = height - fontSize - TOP_BORDER_PADDING - 160;
 }
 
 Menu::~Menu() {
 }
 
 void Menu::update(float dt) {
+	if (m_useSpriteSheet)
+		m_titleAnimTimer += dt;
 
+	MPoint mousePos;
+	aie::Input* input = aie::Input::getInstance();
+	input->getMouseXY(&mousePos.x, &mousePos.y);
+
+	for (auto iter = m_buttons.begin(); iter != m_buttons.end(); iter++) {
+		auto btn = (*iter).get();
+		if (btn->hasFocus(mousePos) && input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT)) {
+			btn->onClick();
+		}
+	}
 }
 
 void Menu::render(aie::Renderer2D * renderer) {
@@ -33,10 +48,9 @@ void Menu::render(aie::Renderer2D * renderer) {
 			m_bounds.y + (m_bounds.height - m_titleHeight - TOP_BORDER_PADDING),
 			m_titleWidth / m_numCells);
 	} else if (m_titleFont.get() != nullptr && m_titleText != "") {
-		Vector2<float> titleSize;
-		m_titleFont->getStringSize(m_titleText, titleSize.x, titleSize.y);
-		renderer->drawText(m_titleFont.get(), m_titleText, (m_bounds.x + m_bounds.width / 2) - titleSize.x / 2,
-			m_bounds.y + m_bounds.height - titleSize.y - TOP_BORDER_PADDING);
+		m_titleFont->getStringSize(m_titleText, m_titleWidth, m_titleHeight);
+		renderer->drawText(m_titleFont.get(), m_titleText, (m_bounds.x + m_bounds.width / 2) - m_titleWidth / 2,
+			m_bounds.y + m_bounds.height - m_titleHeight - TOP_BORDER_PADDING);
 	}
 
 	for (auto iter = m_buttons.begin(); iter != m_buttons.end(); iter++)
@@ -55,4 +69,5 @@ void Menu::setAnimation(bool useSpriteSheet = false, int numCells = 1, int numTr
 
 void Menu::addButton(std::unique_ptr<MenuBtn> btn) {
 	m_buttons.push_back(std::move(btn));
+	m_nextButtonY -= 75;
 }

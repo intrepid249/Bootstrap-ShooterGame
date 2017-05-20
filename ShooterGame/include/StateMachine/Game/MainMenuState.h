@@ -27,9 +27,9 @@ private:
 	std::unique_ptr<Menu> m_menu;
 
 #pragma region ButtonFunctions
-	void newGameFunc() {
-		std::cout << "New Game";
-	}
+	void newGameFunc();
+	void loadGameFunc();
+	void quitFunc();
 #pragma endregion
 
 };
