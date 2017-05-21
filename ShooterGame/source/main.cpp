@@ -6,7 +6,10 @@
 ////	Created by:		Jack McCall
 ////	Description:	A simple top-down shooter game. Defend your base from the enemy
 ////					waves. Earn cash to purchase upgrades and survive longer
+////	Credits:
+////					Images from https://opengameart.org/
 ////
+
 
 int main() {
 	// initialise GLFW so we can tweak some OpenGL settings
