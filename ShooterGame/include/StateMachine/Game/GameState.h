@@ -3,6 +3,7 @@
 #include <memory>
 
 class GameEntity;
+class Player;
 namespace aie {
 	class Font;
 }
@@ -20,6 +21,6 @@ protected:
 	float m_elapsedTime;
 
 	std::unique_ptr<aie::Texture> m_tex;
-	std::unique_ptr<GameEntity> m_player;
+	std::unique_ptr<Player> m_player;
 };
 

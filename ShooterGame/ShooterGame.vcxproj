@@ -32,8 +32,10 @@
     <ClInclude Include="include\StateMachine\Game\PauseState.h" />
     <ClInclude Include="include\StateMachine\Game\SplashState.h" />
     <ClInclude Include="include\Menu\MenuBtn.h" />
+    <ClInclude Include="include\Components\CPlayerController.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Components\CPlayerController.cpp" />
     <ClCompile Include="source\Components\CComponent.cpp" />
     <ClCompile Include="source\Entities\Player.cpp" />
     <ClCompile Include="source\Entities\Weapons\Bullet.cpp" />

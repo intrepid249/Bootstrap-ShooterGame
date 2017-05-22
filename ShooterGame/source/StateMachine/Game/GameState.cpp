@@ -12,6 +12,7 @@
 #include <Components\CComponent.h>
 #include <Components\CSpriteNode.h>
 #include <Entities\GameEntity.h>
+#include <Entities\Player.h>
 
 
 GameState::GameState(ShooterGameApp *app) : IGameState(app){
@@ -19,7 +20,7 @@ GameState::GameState(ShooterGameApp *app) : IGameState(app){
 	m_elapsedTime = 0;
 
 	m_tex = ResourceManager::loadUniqueResource<aie::Texture>("./textures/player_handgun.png");
-	m_player = std::unique_ptr<GameEntity>(new GameEntity(m_tex.get()));
+	m_player = std::unique_ptr<Player>(new Player(m_tex.get()));
 	m_player->translate(Vector2<float>(500, 500));
 }
 
@@ -39,6 +40,8 @@ void GameState::update(float dt) {
 	if (input->wasKeyPressed(aie::INPUT_KEY_ESCAPE)) {
 		getApp()->getGameStateManager()->pushState((int)eGameStateID::PAUSE_STATE);
 	}
+
+	m_player->update(dt);
 }
 
 void GameState::render(aie::Renderer2D * renderer) {

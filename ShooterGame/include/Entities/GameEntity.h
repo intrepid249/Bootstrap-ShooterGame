@@ -35,12 +35,12 @@ public:
 	/** Get a pointer to the particle texture*/
 	virtual aie::Texture* getParticleType();
 
-	virtual void addComponent(CComponent &component);
+	virtual void addComponent(std::shared_ptr<CComponent> component);
 
 protected:
 	aie::Texture *m_particleType;
 	std::unique_ptr<OBB> m_collider;	// The object's Oriented Bounding Box
 	Vector2<float> m_size;
 
-	std::vector<CComponent> m_components;
+	std::vector<std::shared_ptr<CComponent>> m_components;
 };
