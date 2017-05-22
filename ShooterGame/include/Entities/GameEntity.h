@@ -1,6 +1,9 @@
 #pragma once
-#include "Nodes/SpriteNode.h"
+#include <Nodes/Node.h>
 #include <memory>
+#include <vector>
+
+class CComponent;
 class OBB;
 namespace aie {
 	class Texture;
@@ -8,7 +11,7 @@ namespace aie {
 
 /** An object on-screen with a sprite image and an Oriented Bounding Box for collision
 * @author Jack McCall*/
-class GameEntity : public SpriteNode {
+class GameEntity : public Node {
 public:
 	GameEntity();
 	GameEntity(aie::Texture *tex);
@@ -32,7 +35,12 @@ public:
 	/** Get a pointer to the particle texture*/
 	virtual aie::Texture* getParticleType();
 
+	virtual void addComponent(CComponent &component);
+
 protected:
 	aie::Texture *m_particleType;
 	std::unique_ptr<OBB> m_collider;	// The object's Oriented Bounding Box
+	Vector2<float> m_size;
+
+	std::vector<CComponent> m_components;
 };

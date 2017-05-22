@@ -2,6 +2,7 @@
 #include "IGameState.h"
 #include <memory>
 
+class GameEntity;
 namespace aie {
 	class Font;
 }
@@ -17,5 +18,8 @@ public:
 protected:
 	std::unique_ptr<aie::Font>	m_font;
 	float m_elapsedTime;
+
+	std::unique_ptr<aie::Texture> m_tex;
+	std::unique_ptr<GameEntity> m_player;
 };
 
