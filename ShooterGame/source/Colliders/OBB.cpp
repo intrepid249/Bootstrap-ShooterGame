@@ -14,6 +14,11 @@ OBB::OBB(float width, float height) : m_size(Vector2<float>(width, height)) {
 
 OBB::~OBB() {}
 
+void OBB::update(float dt) {
+	if (m_parent != nullptr)
+		updatePointsByMatrix((float*)m_parent->calculateGlobalTransform());
+}
+
 void OBB::render(aie::Renderer2D *renderer) {
 #ifdef _DEBUG
 	// Draw the vertices

@@ -66,6 +66,10 @@ void Node::scale(const Vector2<float> &size) {
 	m_local = m_local * scale;
 }
 
+Vector2<float> Node::getScale() {
+	return m_local.getScale();
+}
+
 void Node::translate(const Vector2<float> & pos) {
 	Matrix3<float> translation = Matrix3<float>::createTranslation(pos);
 	m_local = m_local * translation;

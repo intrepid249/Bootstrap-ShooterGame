@@ -39,8 +39,9 @@ public:
 
 protected:
 	aie::Texture *m_particleType;
-	std::unique_ptr<OBB> m_collider;	// The object's Oriented Bounding Box
 	Vector2<float> m_size;
+
+	OBB *m_collider;
 
 	std::vector<std::shared_ptr<CComponent>> m_components;
 };

@@ -47,6 +47,9 @@ public:
 
 	/** Adjust the size of the object using the local matrix*/
 	void scale(const Vector2<float>& size);
+	/** Get the scale of the object*/
+	Vector2<float> getScale();
+
 	/** Adjust the position of the local matrix*/
 	void translate(const Vector2<float> &translation);
 	/** Adjust the rotation of the local matrix*/

@@ -15,7 +15,7 @@ public:
 	CPlayerController();
 	~CPlayerController();
 
-	virtual void update(float dt);
+	void update(float dt);
 
 	void setControls(aie::EInputCodes up, aie::EInputCodes down, aie::EInputCodes left, aie::EInputCodes right);
 	
@@ -23,7 +23,7 @@ private:
 	void updateControls(aie::Input *input);
 	void faceAtMouse(int mouseX, int mouseY);
 
-	enum class EControlID { UP, DOWN, LEFT, RIGHT };
+	enum class EControlID { UP, DOWN, LEFT, RIGHT, INTERACT };
 	std::map<EControlID, aie::EInputCodes> m_controls;
 
 	float m_speed;

@@ -1,17 +1,21 @@
 #pragma once
 #include "Nodes/Node.h"
+#include <Components\CComponent.h>
 #include <Vector2.h>
 #include <vector>
 
 /** A rectangular object that can be used to test for collision against other objects
 * @author Jack McCall*/
-class OBB : public Node {
+class OBB : public Node, public CComponent {
 public:
 	OBB();
 	/** Construct a bounding box with a set width and height*/
 	OBB(float width, float height);
 	~OBB();
 
+	/** Overload the parent's render  function
+	* @param dt - amount of time since last frame update*/
+	virtual void update(float dt);
 	/** Overload the parent's render  function
 	* @param renderer - pointer to an instance of the graphics renderer*/
 	virtual void render(aie::Renderer2D *renderer);

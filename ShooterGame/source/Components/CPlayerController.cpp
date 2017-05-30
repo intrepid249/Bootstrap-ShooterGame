@@ -17,14 +17,21 @@ void CPlayerController::update(float dt) {
 	float rot = gMat.getRotationZ();
 
 	// Update movement according to flags and rotation
+	Vector2<float> velocity;
 	if (m_moveFW)
-		m_parent->translate(Vector2<float>(cosf(degToRad(rot)) * m_speed * dt, sinf(degToRad(rot)) * m_speed * dt));
+		velocity = Vector2<float>(cosf(degToRad(rot)) * m_speed * dt, sinf(degToRad(rot)) * m_speed * dt);
 	if (m_moveBW)
-		m_parent->translate(Vector2<float>(-cosf(degToRad(rot)) * m_speed * dt, -sinf(degToRad(rot)) * m_speed * dt));
+		velocity = Vector2<float>(-cosf(degToRad(rot)) * m_speed * dt, -sinf(degToRad(rot)) * m_speed * dt);
 	if (m_moveL)
-		m_parent->translate(Vector2<float>(sinf(degToRad(rot)) * m_speed * dt, cosf(degToRad(rot)) * m_speed * dt));
+		velocity = Vector2<float>(sinf(degToRad(rot)) * m_speed * dt, cosf(degToRad(rot)) * m_speed * dt);
 	if (m_moveR)
-		m_parent->translate(Vector2<float>(-sinf(degToRad(rot)) * m_speed * dt, -cosf(degToRad(rot)) * m_speed * dt));
+		velocity = Vector2<float>(-sinf(degToRad(rot)) * m_speed * dt, -cosf(degToRad(rot)) * m_speed * dt);
+
+
+	if (m_parent != nullptr)
+		m_parent->translate(velocity);
+	else
+		translate(velocity);
 
 	// Update the controls and aim the player at the mouse
 	aie::Input *input = aie::Input::getInstance();
