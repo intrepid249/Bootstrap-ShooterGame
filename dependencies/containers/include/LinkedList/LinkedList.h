@@ -126,7 +126,7 @@ public:
 	}
 
 	T operator [](unsigned int index) {
-		if (index >= size() || index < 0) return NULL;
+		if (index >= size() || index < 0) return T();
 
 		ListNode<T> *current = first;
 		for (auto i = 0; i < index; ++i) {
@@ -154,7 +154,7 @@ public:
 	/** Return the address of the first element of the container*/
 	ListNode<T>* begin() { current = first; return first; }
 	/** Return the address past the last element of the container*/
-	ListNode<T>* end() { return nullptr; }
+	ListNode<T>* end() { return last->next; }
 
 	unsigned int size() { return m_size; }
 
