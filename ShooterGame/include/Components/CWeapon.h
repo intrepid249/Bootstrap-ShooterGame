@@ -5,7 +5,8 @@
 #include <Entities\Weapons\Bullet.h>
 #include <memory>
 #include <map>
-#include <vector>
+#include <ArrayList\ArrayList.h>
+#include <Vector2.h>
 
 namespace aie {
 	class Renderer2D;
@@ -14,6 +15,8 @@ namespace aie {
 	enum EInputCodes;
 }
 
+/** This will act as the spawner + controller for shooting bullets
+* @author Jack McCall*/
 class CWeapon : public Node, public CComponent {
 public:
 	CWeapon();
@@ -25,6 +28,8 @@ public:
 	void setControls(bool useMouseInput, aie::EInputCodes primaryFire, aie::EInputCodes secondaryFire);
 	void setPrimaryDelay(float delay);
 	void setSecondaryDelay(float delay);
+
+	void addBulletSpawner(Vector2<float> pos);
 
 private:
 	bool mouseInput;
@@ -39,6 +44,7 @@ private:
 
 	float primaryDelay, secondaryDelay;
 	bool isShootingPrimary, canShootPrimary;
-	std::vector<Bullet*> m_bullets;
+	ArrayList<Bullet*> m_bullets;
+	ArrayList<Node*> m_bulletSpawners;
 };
 

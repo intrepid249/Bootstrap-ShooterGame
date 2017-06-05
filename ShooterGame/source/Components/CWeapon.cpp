@@ -17,12 +17,14 @@ CWeapon::CWeapon() {
 CWeapon::~CWeapon() {
 	for (auto iter = m_bullets.begin(); iter != m_bullets.end(); ++iter)
 		delete (*iter);
+	for (auto iter = m_bulletSpawners.begin(); iter != m_bulletSpawners.end(); ++iter)
+		delete (*iter);
 }
 
 void CWeapon::update(float dt) {
 	aie::Input *input = aie::Input::getInstance();
 	
-	if (isShootingPrimary && canShootPrimary)
+	if (isShootingPrimary && canShootPrimary) 
 		shootPrimary();
 
 	updateControls(input);
@@ -33,6 +35,13 @@ void CWeapon::update(float dt) {
 }
 
 void CWeapon::render(aie::Renderer2D * renderer) {
+	Node::render(renderer);
+	CComponent::render(renderer);
+	renderer->setRenderColour(0xff0000ff);
+	for (auto spawner : m_bulletSpawners)
+		spawner->render(renderer);
+	renderer->setRenderColour(0xffffffff);
+
 	for (auto iter = m_bullets.begin(); iter != m_bullets.end(); ++iter)
 		(*iter)->render(renderer);
 }
@@ -49,6 +58,13 @@ void CWeapon::setPrimaryDelay(float delay) {
 
 void CWeapon::setSecondaryDelay(float delay) {
 	secondaryDelay = delay;
+}
+
+void CWeapon::addBulletSpawner(Vector2<float> pos) {
+	Node* temp = new Node();
+	temp->translate(pos);
+
+	m_bulletSpawners.push_back(temp);
 }
 
 void CWeapon::updateControls(aie::Input * input) {
@@ -73,8 +89,8 @@ void CWeapon::shootPrimary() {
 	Bullet *b = new Bullet(bTex.get());
 	b->setLifetime(5);
 	b->setMoveSpeed(200);
+	b->translate(calculateGlobalTransform().getTranslation());
 	b->setRotate(m_parent->getTransform().getRotationZ());
-	b->translate(m_parent->getTransform().getTranslation());
 	m_bullets.push_back(b);
 
 	Timer t;
