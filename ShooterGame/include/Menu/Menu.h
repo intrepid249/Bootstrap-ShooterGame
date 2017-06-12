@@ -1,6 +1,6 @@
 #pragma once
 #include <Settings.h>
-#include <ArrayList\ArrayList.hpp>
+#include <vector>
 #include <memory>
 
 class MenuBtn;
@@ -40,7 +40,7 @@ private:
 	bool m_useSpriteSheet;
 	float m_titleWidth, m_titleHeight;
 
-	ArrayList<std::unique_ptr<MenuBtn>>	m_buttons;
+	std::vector<std::unique_ptr<MenuBtn>>	m_buttons;
 
 	MRECT m_bounds;
 

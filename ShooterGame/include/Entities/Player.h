@@ -15,3 +15,4 @@ public:
 	virtual void render(aie::Renderer2D *renderer);
 	virtual void update(float dt);
 };
+

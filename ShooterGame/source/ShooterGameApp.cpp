@@ -25,7 +25,7 @@ bool ShooterGameApp::startup() {
 	m_gameStateManager->setState((int)eGameStateID::PAUSE_STATE, new PauseState(this));
 	m_gameStateManager->setState((int)eGameStateID::MAIN_MENU_STATE, new MainMenuState(this));
 
-	m_gameStateManager->pushState((int)eGameStateID::GAME_STATE);
+	m_gameStateManager->pushState((int)eGameStateID::SPLASH_STATE);
 
 	return true;
 }
