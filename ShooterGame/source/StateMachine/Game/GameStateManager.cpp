@@ -60,8 +60,8 @@ IGameState * GameStateManager::getTopState() {
 }
 
 void GameStateManager::processCommands() {
-	for (auto iter = m_commands.begin(); iter != m_commands.end(); iter++) {
-		Command &cmd = (*iter);
+	for (int i = 0; i < m_commands.size(); ++i) {
+		Command &cmd = m_commands[i];
 		switch (cmd.cmd) {
 		case ECommand::SET:
 			processSetState(cmd.ID, cmd.pState);
@@ -92,7 +92,7 @@ void GameStateManager::processPushState(int ID) {
 		// Push the state back onto the stack
 		m_activeStateStack.push_back(iter->second);
 	} else {
-		assert(ID && "State ID not found");
+		assert((iter != m_registeredStates.end()) && "State ID not found");
 	}
 }
 

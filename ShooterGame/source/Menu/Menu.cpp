@@ -30,8 +30,8 @@ void Menu::update(float dt) {
 	aie::Input* input = aie::Input::getInstance();
 	input->getMouseXY(&mousePos.x, &mousePos.y);
 
-	for (auto iter = m_buttons.begin(); iter != m_buttons.end(); iter++) {
-		auto btn = (*iter).get();
+	for (unsigned int i = 0; i < m_buttons.size(); ++i) {
+		auto btn = m_buttons[i].get();
 		if (btn->hasFocus(mousePos) && input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT)) {
 			btn->onClick();
 		}
@@ -41,7 +41,7 @@ void Menu::update(float dt) {
 void Menu::render(aie::Renderer2D * renderer) {
 	if (m_titleImage != nullptr) {
 		if (m_useSpriteSheet)
-			renderer->setUVRect(int(m_titleAnimTimer * 10) % m_numCells / m_numCells, 0, 1 / m_numCells, 1 / m_numTracks);
+			renderer->setUVRect((float)(int(m_titleAnimTimer * 10) % m_numCells / m_numCells), 0, 1.0f / m_numCells, 1.0f / m_numTracks);
 		else
 			renderer->setUVRect(0, 0, 1, 1);
 		renderer->drawSprite(m_titleImage.get(), m_bounds.x + (m_bounds.width / 2), 
@@ -60,8 +60,8 @@ void Menu::render(aie::Renderer2D * renderer) {
 void Menu::setAnimation(bool useSpriteSheet = false, int numCells = 1, int numTracks = 1) {
 	m_useSpriteSheet = useSpriteSheet;
 	if (m_titleImage != nullptr) {
-		m_titleWidth = m_titleImage->getWidth() / numCells;
-		m_titleHeight = m_titleImage->getHeight() / numTracks;
+		m_titleWidth = (float)m_titleImage->getWidth() / numCells;
+		m_titleHeight = (float)m_titleImage->getHeight() / numTracks;
 		m_numCells = numCells;
 		m_numTracks = numTracks;
 	}

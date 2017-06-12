@@ -1,11 +1,10 @@
 #pragma once
 #include "CComponent.h"
 #include <Nodes\Node.h>
-#include <LinkedList\LinkedList.h>
 #include <Entities\Weapons\Bullet.h>
 #include <memory>
-#include <map>
-#include <vector>
+#include <Map\map.hpp>
+#include <ArrayList\ArrayList.hpp>
 
 namespace aie {
 	class Renderer2D;
@@ -33,12 +32,12 @@ private:
 	void shootPrimary();
 
 	enum class EControlID { PRIMARY_FIRE, SECONDARY_FIRE, RELOAD };
-	std::map<EControlID, aie::EInputCodes> m_controls;
+	Map<EControlID, aie::EInputCodes> m_controls;
 
 	std::shared_ptr<aie::Texture> bTex;
 
 	float primaryDelay, secondaryDelay;
 	bool isShootingPrimary, canShootPrimary;
-	std::vector<Bullet*> m_bullets;
+	ArrayList<Bullet*> m_bullets;
 };
 

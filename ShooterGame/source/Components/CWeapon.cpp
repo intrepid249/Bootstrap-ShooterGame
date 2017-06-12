@@ -28,7 +28,6 @@ void CWeapon::update(float dt) {
 	updateControls(input);
 
 	for (auto iter = m_bullets.begin(); iter != m_bullets.end(); ++iter)
-		//iter->value.update(dt)
 		(*iter)->update(dt);
 }
 
