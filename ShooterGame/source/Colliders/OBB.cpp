@@ -36,7 +36,7 @@ void OBB::render(aie::Renderer2D *renderer) {
 	// Draw the face normals
 	renderer->setRenderColour(0x00f080ff);
 	Vector2<float> pos = calculateGlobalTransform().getTranslation();
-	std::vector<Vector2<float>> faceNormals = calculateFaceNormals();
+	ArrayList<Vector2<float>> faceNormals = calculateFaceNormals();
 	renderer->drawLine(faceNormals[0].x + pos.x, faceNormals[0].y + pos.y, pos.x, pos.y);
 	renderer->drawLine(faceNormals[1].x + pos.x, faceNormals[1].y + pos.y, pos.x, pos.y);
 	renderer->drawLine(faceNormals[2].x + pos.x, faceNormals[2].y + pos.y, pos.x, pos.y);
@@ -89,8 +89,8 @@ void OBB::updatePointsByMatrix(float  *worldMat) {
 	m_points[3] = Vector2<float>(blX, blY);
 }
 
-std::vector<Vector2<float>> OBB::calculateFaceNormals() {
-	std::vector<Vector2<float>> temp;
+ArrayList<Vector2<float>> OBB::calculateFaceNormals() {
+	ArrayList<Vector2<float>> temp;
 	//North
 	temp.push_back(LinearHalf(m_points[0], m_points[1]));
 	//East
@@ -113,7 +113,7 @@ bool OBB::contains(Vector2<float> & point) {
 }
 
 bool OBB::collides(OBB & rhs) {
-	std::vector<Vector2<float>> faceNormals = calculateFaceNormals();
+	ArrayList<Vector2<float>> faceNormals = calculateFaceNormals();
 
 	Vector2<float> pos = calculateGlobalTransform().getTranslation();
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <Nodes/Node.h>
 #include <memory>
-#include <vector>
+#include <LinkedList\LinkedList.h>
 
 class CComponent;
 class OBB;
@@ -43,5 +43,5 @@ protected:
 
 	OBB *m_collider;
 
-	std::vector<std::shared_ptr<CComponent>> m_components;
+	LinkedList<std::shared_ptr<CComponent>> m_components;
 };

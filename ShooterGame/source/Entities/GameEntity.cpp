@@ -38,8 +38,8 @@ GameEntity::~GameEntity() {
 void GameEntity::update(float dt) {
 	if (m_isDrawn) {
 		Node::update(dt);
-		for (auto iter = m_components.begin(); iter != m_components.end(); iter++)
-			(*iter)->update(dt);
+		for (size_t i = 0; i < m_components.size(); ++i)
+			m_components[i]->update(dt);
 	}
 }
 
@@ -48,8 +48,8 @@ void GameEntity::update(float dt) {
 void GameEntity::render(aie::Renderer2D * renderer) {
 	if (m_isDrawn) {
 		Node::render(renderer);
-		for (auto iter = m_components.begin(); iter != m_components.end(); iter++)
-			(*iter)->render(renderer);
+		for (size_t i = 0; i < m_components.size(); ++i)
+			m_components[i]->render(renderer);
 	}
 }
 
