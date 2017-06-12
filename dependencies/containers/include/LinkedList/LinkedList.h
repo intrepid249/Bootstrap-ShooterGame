@@ -2,25 +2,26 @@
 #include <memory>
 #include <iostream>
 
-template <class T>
-class ListNode {
-public:
-	ListNode() = default;
-	ListNode(T obj) {
-		value = obj;
-	}
-	~ListNode() = default;
-
-	operator T() { return value; }
-
-	ListNode *next, *prev;
-	T value;
-};
-
 
 /* With assistance from Jack Hunt*/
 template <class T>
 class LinkedList {
+
+	template <class T>
+	class ListNode {
+	public:
+		ListNode() = default;
+		ListNode(T obj) {
+			value = obj;
+		}
+		~ListNode() = default;
+
+		operator T() { return value; }
+
+		ListNode *next, *prev;
+		T value;
+	};
+
 public:
 	LinkedList() {
 		m_size = 0;
@@ -129,7 +130,7 @@ public:
 		if (index >= size() || index < 0) return T();
 
 		ListNode<T> *current = first;
-		for (auto i = 0; i < index; ++i) {
+		for (unsigned int i = 0; i < index; ++i) {
 			current = current->next;
 		}
 		return current->value;
