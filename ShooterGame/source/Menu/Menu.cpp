@@ -14,7 +14,7 @@ Menu::Menu(aie::Texture * titleImage, float x, float y, float width, float heigh
 
 Menu::Menu(const char * title, float x, float y, float width, float height)
 	: m_titleImage(nullptr), m_bounds({ x, y, width, height }), m_titleAnimTimer(0), m_titleText(title) {
-	float fontSize = 60;
+	int fontSize = 60;
 	m_titleFont = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", fontSize);
 	m_nextButtonY = height - fontSize - TOP_BORDER_PADDING - 160;
 }
@@ -41,7 +41,7 @@ void Menu::update(float dt) {
 void Menu::render(aie::Renderer2D * renderer) {
 	if (m_titleImage != nullptr) {
 		if (m_useSpriteSheet)
-			renderer->setUVRect(int(m_titleAnimTimer * 10) % m_numCells / m_numCells, 0, 1 / m_numCells, 1 / m_numTracks);
+			renderer->setUVRect((float)(int(m_titleAnimTimer * 10) % m_numCells / m_numCells), 0.f, 1.f / m_numCells, 1.f / m_numTracks);
 		else
 			renderer->setUVRect(0, 0, 1, 1);
 		renderer->drawSprite(m_titleImage.get(), m_bounds.x + (m_bounds.width / 2), 
@@ -60,8 +60,8 @@ void Menu::render(aie::Renderer2D * renderer) {
 void Menu::setAnimation(bool useSpriteSheet = false, int numCells = 1, int numTracks = 1) {
 	m_useSpriteSheet = useSpriteSheet;
 	if (m_titleImage != nullptr) {
-		m_titleWidth = m_titleImage->getWidth() / numCells;
-		m_titleHeight = m_titleImage->getHeight() / numTracks;
+		m_titleWidth = (float)m_titleImage->getWidth() / numCells;
+		m_titleHeight = (float)m_titleImage->getHeight() / numTracks;
 		m_numCells = numCells;
 		m_numTracks = numTracks;
 	}

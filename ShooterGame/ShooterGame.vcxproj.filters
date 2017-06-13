@@ -84,6 +84,9 @@
     <ClInclude Include="include\Components\CWeapon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\StateMachine\Game\LoadGameDataState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -134,13 +137,13 @@
     <ClCompile Include="source\Components\CSpriteNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Components\CComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Components\CPlayerController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Components\CWeapon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\StateMachine\Game\LoadGameDataState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

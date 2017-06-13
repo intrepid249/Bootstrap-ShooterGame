@@ -1,6 +1,7 @@
 #pragma once
-#include <Utility.h>
 
+
+/** Created by Jack McCall*/
 struct Colour {
 public:
 	Colour() {

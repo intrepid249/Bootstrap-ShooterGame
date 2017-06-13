@@ -1,7 +1,7 @@
 #pragma once
 #include <Nodes/Node.h>
 #include <memory>
-#include <LinkedList\LinkedList.h>
+#include <LinkedList\LinkedList.hpp>
 
 class CComponent;
 class OBB;

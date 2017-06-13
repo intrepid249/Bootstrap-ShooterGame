@@ -2,7 +2,7 @@
 #include "Nodes/Node.h"
 #include <Components\CComponent.h>
 #include <Vector2.h>
-#include <ArrayList\ArrayList.h>
+#include <ArrayList\ArrayList.hpp>
 
 /** A rectangular object that can be used to test for collision against other objects
 * @author Jack McCall*/

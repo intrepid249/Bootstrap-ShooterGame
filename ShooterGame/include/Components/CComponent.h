@@ -8,9 +8,9 @@ namespace aie {
 
 class CComponent {
 public:
-	CComponent();
-	virtual ~CComponent();
+	CComponent() = default;
+	virtual ~CComponent() = default;
 
-	virtual void update(float dt);
-	virtual void render(aie::Renderer2D *renderer);
+	virtual void update(float dt) {};
+	virtual void render(aie::Renderer2D *renderer) {};
 };

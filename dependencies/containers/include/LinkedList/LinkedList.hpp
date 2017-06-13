@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <iostream>
+#include <assert.h>
 
 
 /* With assistance from Jack Hunt*/
@@ -16,6 +17,7 @@ class LinkedList {
 		}
 		~ListNode() = default;
 
+		// Overload the typecast operator so that the ListNode can act as the object itself
 		operator T() { return value; }
 
 		ListNode *next, *prev;
@@ -23,6 +25,9 @@ class LinkedList {
 	};
 
 public:
+	typedef ListNode<T>* iterator;
+	typedef const ListNode<T>* const_iterator;
+
 	LinkedList() {
 		m_size = 0;
 		first = last = nullptr;
@@ -63,6 +68,9 @@ public:
 
 	/** Remove the item at the specified index*/
 	void erase(unsigned int index) {
+		assert(index >= 0 && "Index out of bounds ( cannot have negative index )");
+		assert(index <= m_size && "Index out of bounds ( cannot exceed size of container )");
+
 		if (index >= m_size || index < 0) return;
 
 		// Decrease the size of the container
@@ -98,13 +106,17 @@ public:
 		}
 	}
 	/** Insert an item ad the specified index*/
-	void insert(const T& item, unsigned int index = m_size) {
-		if (index > m_size || index < 0) return;
+	void insert(const T& item, unsigned int index = size()) {
+		assert(index >= 0 && "Index out of bounds ( cannot have negative index )");
+		assert(index <= m_size && "Index out of bounds ( cannot exceed size of container )");
 
 		ListNode<T> *obj = new ListNode<T>(item);
+		if (first == nullptr) first = obj;
+		if (last == nullptr) last = obj;
+
 		ListNode<T> *current = first;
 
-		// Iterate through the list to get the item to remove
+		// Iterate through the list to get the item to shift
 		for (unsigned int i = 0; i < (index); i++) {
 			if (current->next == nullptr) return;
 			current = current->next;
@@ -127,7 +139,8 @@ public:
 	}
 
 	T operator [](unsigned int index) {
-		if (index >= size() || index < 0) return T();
+		assert(index >= 0 && "Index out of bounds ( cannot have negative index )");
+		assert(index <= m_size && "Index out of bounds ( cannot exceed size of container )");
 
 		ListNode<T> *current = first;
 		for (unsigned int i = 0; i < index; ++i) {
@@ -137,13 +150,12 @@ public:
 	}
 
 	/// ITERATOR FUNCTIONS
-	ListNode<T>* next() {
+	iterator next() {
 		current = current->next;
 
 		return current;
 	}
-
-	ListNode<T>* prev() {
+	iterator prev() {
 		if (current == nullptr) return nullptr;
 
 		if (current->prev == nullptr) return nullptr;
@@ -157,6 +169,7 @@ public:
 	/** Return the address past the last element of the container*/
 	ListNode<T>* end() { return last->next; }
 
+	bool empty() { return m_size == 0; }
 	unsigned int size() { return m_size; }
 
 private:

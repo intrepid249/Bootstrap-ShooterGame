@@ -29,6 +29,7 @@
     <ClInclude Include="include\StateMachine\Game\GameState.h" />
     <ClInclude Include="include\StateMachine\Game\GameStateManager.h" />
     <ClInclude Include="include\StateMachine\Game\IGameState.h" />
+    <ClInclude Include="include\StateMachine\Game\LoadGameDataState.h" />
     <ClInclude Include="include\StateMachine\Game\MainMenuState.h" />
     <ClInclude Include="include\StateMachine\Game\PauseState.h" />
     <ClInclude Include="include\StateMachine\Game\SplashState.h" />
@@ -36,8 +37,8 @@
     <ClInclude Include="include\Components\CPlayerController.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\StateMachine\Game\LoadGameDataState.cpp" />
     <ClCompile Include="source\Components\CPlayerController.cpp" />
-    <ClCompile Include="source\Components\CComponent.cpp" />
     <ClCompile Include="source\Entities\Player.cpp" />
     <ClCompile Include="source\Entities\Weapons\Bullet.cpp" />
     <ClCompile Include="source\Entities\GameEntity.cpp" />
@@ -95,14 +96,14 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)dependencies\containers\include;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)dependencies\sort\include;$(SolutionDir)dependencies\containers\include;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\timer\src;$(SolutionDir)dependencies\math\LIB\;$(SolutionDir)temp\bootstrap\$(Configuration);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)dependencies\containers\include;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)dependencies\sort\include;$(SolutionDir)dependencies\containers\include;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\timer\src;$(SolutionDir)dependencies\math\LIB\;$(SolutionDir)temp\bootstrap\$(Configuration);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -42,7 +42,7 @@ void MainMenuState::render(aie::Renderer2D * renderer) {
 void MainMenuState::newGameFunc() {
 	std::cout << "Add code to overwrite save file\n";
 	getApp()->getGameStateManager()->popState();
-	getApp()->getGameStateManager()->pushState((int)eGameStateID::GAME_STATE);
+	getApp()->getGameStateManager()->pushState((int)eGameStateID::LOAD_GAME_DATA);
 }
 
 void MainMenuState::loadGameFunc() {

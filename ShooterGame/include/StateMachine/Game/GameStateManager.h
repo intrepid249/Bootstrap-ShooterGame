@@ -1,6 +1,6 @@
 #pragma once
-#include <map>
-#include <vector>
+#include <Map\map.hpp>
+#include <ArrayList\ArrayList.hpp>
 
 namespace aie {
 	class Renderer2D;
@@ -23,9 +23,9 @@ public:
 
 private:
 	// A database of states that have been stored within the manager
-	std::map<int, IGameState*>				m_registeredStates;
+	Map<int, IGameState*>				m_registeredStates;
 	// A stack of all the states that will be actively updated and drawn
-	std::vector<IGameState*>				m_activeStateStack;
+	ArrayList<IGameState*>				m_activeStateStack;
 
 #pragma region Command Queues
 	void processCommands();
@@ -42,6 +42,6 @@ private:
 		IGameState *pState;
 	};
 
-	std::vector<Command> m_commands;
+	ArrayList<Command> m_commands;
 #pragma endregion
 };

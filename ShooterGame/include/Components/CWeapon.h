@@ -1,11 +1,10 @@
 #pragma once
 #include "CComponent.h"
 #include <Nodes\Node.h>
-#include <LinkedList\LinkedList.h>
 #include <Entities\Weapons\Bullet.h>
 #include <memory>
 #include <map>
-#include <ArrayList\ArrayList.h>
+#include <ArrayList\ArrayList.hpp>
 #include <Vector2.h>
 
 namespace aie {

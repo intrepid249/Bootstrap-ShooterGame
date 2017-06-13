@@ -1,12 +1,14 @@
 #pragma once
 #include <Settings.h>
-#include <vector>
 #include <memory>
+
+#include <ArrayList\ArrayList.hpp>
 
 class MenuBtn;
 namespace aie {
 	class Texture;
 	class Renderer2D;
+	class Input;
 	class Font;
 }
 
@@ -40,7 +42,7 @@ private:
 	bool m_useSpriteSheet;
 	float m_titleWidth, m_titleHeight;
 
-	std::vector<std::unique_ptr<MenuBtn>>	m_buttons;
+	ArrayList<std::unique_ptr<MenuBtn>>	m_buttons;
 
 	MRECT m_bounds;
 
