@@ -1,5 +1,5 @@
 #include <StateMachine\Game\MainMenuState.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager\ResourceManager.hpp>
 #include <ShooterGameApp.h>
 #include <StateMachine\Game\GameStateManager.h>
 #include <Settings.h>
@@ -12,7 +12,7 @@
 #include <Font.h>
 
 MainMenuState::MainMenuState(ShooterGameApp *app) : IGameState(app) {
-	m_statusFont = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
+	//m_statusFont = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
 	m_menu = std::unique_ptr<Menu>(new Menu("Endless"));
 	/// Menu Buttons
 	// New Game

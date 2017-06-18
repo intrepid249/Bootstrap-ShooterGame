@@ -2,7 +2,7 @@
 #include <Input.h>
 #include <Font.h>
 #include <Settings.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager\ResourceManager.hpp>
 #include <StateMachine\Game\GameStateManager.h>
 
 #include <StateMachine\Game\SplashState.h>
@@ -27,7 +27,7 @@ bool ShooterGameApp::startup() {
 	m_gameStateManager->setState((int)eGameStateID::MAIN_MENU_STATE, new MainMenuState(this));
 	m_gameStateManager->setState((int)eGameStateID::LOAD_GAME_DATA, new LoadGameDataState(this));
 
-	m_gameStateManager->pushState((int)eGameStateID::SPLASH_STATE);
+	m_gameStateManager->pushState((int)eGameStateID::GAME_STATE);
 
 	return true;
 }

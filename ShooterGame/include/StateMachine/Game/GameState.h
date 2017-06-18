@@ -17,7 +17,7 @@ public:
 	virtual void render(aie::Renderer2D *renderer);
 
 protected:
-	std::unique_ptr<aie::Font>	m_font;
+	aie::Font	*m_font;
 	float m_elapsedTime;
 
 	std::unique_ptr<aie::Texture> m_tex;

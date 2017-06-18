@@ -1,5 +1,5 @@
 #include <Menu\Menu.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager\ResourceManager.hpp>
 #include <Font.h>
 #include <Renderer2D.h>
 #include <Menu\MenuBtn.h>
@@ -15,7 +15,7 @@ Menu::Menu(aie::Texture * titleImage, float x, float y, float width, float heigh
 Menu::Menu(const char * title, float x, float y, float width, float height)
 	: m_titleImage(nullptr), m_bounds({ x, y, width, height }), m_titleAnimTimer(0), m_titleText(title) {
 	int fontSize = 60;
-	m_titleFont = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", fontSize);
+	//m_titleFont = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", fontSize);
 	m_nextButtonY = height - fontSize - TOP_BORDER_PADDING - 160;
 }
 
