@@ -16,8 +16,9 @@
 
 using namespace RM;
 
-GameState::GameState(ShooterGameApp *app) : IGameState(app){
-	m_font = ResourceManager<aie::Font>::find<aie::Font>(int(GS_FONT_MAIN));
+GameState::GameState(ShooterGameApp *app) : IGameState(app) {
+	m_fonts = std::unique_ptr<ResourceManager<aie::Font>>(new ResourceManager<aie::Font>());
+	m_fonts->load(GS_FONT_MAIN, "./font/consolas.ttf", 32);
 	m_elapsedTime = 0;
 
 	//m_tex = ResourceManager::loadUniqueResource<aie::Texture>("./textures/player_handgun.png");
@@ -51,6 +52,8 @@ void GameState::render(aie::Renderer2D * renderer) {
 
 	m_player->render(renderer);
 
-	renderer->drawText(m_font, buffer, 10, 30);
-	renderer->drawText(m_font, "Game State", 10, 10);
+	aie::Font *font = m_fonts->find(GS_FONT_MAIN).get();
+
+	renderer->drawText(font, buffer, 10, 30);
+	renderer->drawText(font, "Game State", 10, 10);
 }
