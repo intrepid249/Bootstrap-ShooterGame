@@ -3,12 +3,12 @@
 #include <Font.h>
 #include <ShooterGameApp.h>
 #include <Settings.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager\ResourceManager.hpp>
 #include <StateMachine\Game\GameStateManager.h>
 #include <assert.h>
 
 SplashState::SplashState(ShooterGameApp *app) : IGameState(app) {
-	m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
+	//m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
 	m_elapsedTime = 0.0f;
 }
 

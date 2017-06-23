@@ -3,7 +3,7 @@
 #include <Font.h>
 #include <Texture.h>
 #include <Input.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager\ResourceManager.hpp>
 
 MenuBtn::MenuBtn() {
 }
@@ -11,7 +11,7 @@ MenuBtn::MenuBtn() {
 MenuBtn::MenuBtn(const char * labelText, std::function<void()> onClickCallback,
 	float x, float y, Colour col, aie::Texture * tex)
 	: m_labelText(labelText), onClick(onClickCallback), m_tex(tex), m_tintColour(col) {
-	m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
+	//m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
 	if (tex != nullptr)
 		m_bounds = MRECT{ x, y, (float)tex->getWidth(), (float)tex->getHeight() };
 	else

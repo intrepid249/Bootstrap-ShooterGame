@@ -22,14 +22,15 @@
     <ClInclude Include="include\Entities\Weapons\Weapon.h" />
     <ClInclude Include="include\Menu\Menu.h" />
     <ClInclude Include="include\Nodes\Node.h" />
-    <ClInclude Include="include\ResourceManager\ErrorManager.h" />
-    <ClInclude Include="include\ResourceManager\ResourceManager.h" />
+    <ClInclude Include="include\ResourceManager\ErrorManager.hpp" />
+    <ClInclude Include="include\ResourceManager\ResourceManager.hpp" />
     <ClInclude Include="include\Settings.h" />
     <ClInclude Include="include\ShooterGameApp.h" />
     <ClInclude Include="include\StateMachine\Game\GameState.h" />
     <ClInclude Include="include\StateMachine\Game\GameStateManager.h" />
     <ClInclude Include="include\StateMachine\Game\IGameState.h" />
     <ClInclude Include="include\StateMachine\Game\LoadGameDataState.h" />
+    <ClInclude Include="include\StateMachine\Game\LoadState.h" />
     <ClInclude Include="include\StateMachine\Game\MainMenuState.h" />
     <ClInclude Include="include\StateMachine\Game\PauseState.h" />
     <ClInclude Include="include\StateMachine\Game\SplashState.h" />
@@ -37,6 +38,7 @@
     <ClInclude Include="include\Components\CPlayerController.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\StateMachine\Game\LoadState.cpp" />
     <ClCompile Include="source\StateMachine\Game\LoadGameDataState.cpp" />
     <ClCompile Include="source\Components\CPlayerController.cpp" />
     <ClCompile Include="source\Entities\Player.cpp" />

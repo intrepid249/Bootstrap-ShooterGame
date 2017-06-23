@@ -2,7 +2,7 @@
 #include <Input.h>
 #include <Font.h>
 #include <Settings.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager\ResourceManager.hpp>
 #include <StateMachine\Game\GameStateManager.h>
 
 #include <StateMachine\Game\SplashState.h>
@@ -21,13 +21,13 @@ bool ShooterGameApp::startup() {
 	m_renderer = std::unique_ptr<aie::Renderer2D>(new aie::Renderer2D());
 
 	m_gameStateManager = std::unique_ptr<GameStateManager>(new GameStateManager());
-	m_gameStateManager->setState((int)eGameStateID::SPLASH_STATE, new SplashState(this));
+	//m_gameStateManager->setState((int)eGameStateID::SPLASH_STATE, new SplashState(this));
 	m_gameStateManager->setState((int)eGameStateID::GAME_STATE, new GameState(this));
-	m_gameStateManager->setState((int)eGameStateID::PAUSE_STATE, new PauseState(this));
-	m_gameStateManager->setState((int)eGameStateID::MAIN_MENU_STATE, new MainMenuState(this));
-	m_gameStateManager->setState((int)eGameStateID::LOAD_GAME_DATA, new LoadGameDataState(this));
+	//m_gameStateManager->setState((int)eGameStateID::PAUSE_STATE, new PauseState(this));
+	//m_gameStateManager->setState((int)eGameStateID::MAIN_MENU_STATE, new MainMenuState(this));
+	//m_gameStateManager->setState((int)eGameStateID::LOAD_GAME_DATA, new LoadGameDataState(this));
 
-	m_gameStateManager->pushState((int)eGameStateID::SPLASH_STATE);
+	m_gameStateManager->pushState((int)eGameStateID::GAME_STATE);
 
 	return true;
 }

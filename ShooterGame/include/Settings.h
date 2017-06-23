@@ -11,6 +11,9 @@
 #define FULLSCREEN false
 #pragma endregion
 
+namespace RM {
+	enum eResourceID { GS_FONT_MAIN };
+}
 
 #pragma region Game State Manager
 enum class eGameStateID { SPLASH_STATE, GAME_STATE, PAUSE_STATE, MAIN_MENU_STATE, LOAD_GAME_DATA };
