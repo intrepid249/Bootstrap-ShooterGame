@@ -2,7 +2,7 @@
 #include <Input.h>
 #include <Texture.h>
 #include <Renderer2D.h>
-#include <ResourceManager\ResourceManager.hpp>
+#include <ResourceManager\ResourceManager.h>
 #include <Timer.h>
 
 #include<iostream>
@@ -11,7 +11,7 @@ CWeapon::CWeapon() {
 	isShootingPrimary = false;
 	canShootPrimary = true;
 
-	//bTex = ResourceManager::loadSharedResource<aie::Texture>("./textures/rock_small.png");
+	bTex = ResourceManager::loadSharedResource<aie::Texture>("./textures/rock_small.png");
 }
 
 CWeapon::~CWeapon() {

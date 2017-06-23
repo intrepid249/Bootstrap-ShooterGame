@@ -2,14 +2,14 @@
 #include <ShooterGameApp.h>
 #include <Font.h>
 #include <Renderer2D.h>
-#include <ResourceManager\ResourceManager.hpp>
+#include <ResourceManager\ResourceManager.h>
 #include <Settings.h>
 #include <Input.h>
 #include <ShooterGameApp.h>
 #include <StateMachine\Game\GameStateManager.h>
 
 PauseState::PauseState(ShooterGameApp *app) : IGameState(app) {
-	//m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 16);
+	m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 16);
 }
 
 PauseState::~PauseState() {}
