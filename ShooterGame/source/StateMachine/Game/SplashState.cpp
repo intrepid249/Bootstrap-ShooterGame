@@ -3,7 +3,7 @@
 #include <Font.h>
 #include <ShooterGameApp.h>
 #include <Settings.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager.h>
 #include <StateMachine\Game\GameStateManager.h>
 #include <assert.h>
 

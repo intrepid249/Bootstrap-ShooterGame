@@ -2,7 +2,7 @@
 #include <Input.h>
 #include <Font.h>
 #include <Settings.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager.h>
 #include <StateMachine\Game\GameStateManager.h>
 
 #include <StateMachine\Game\SplashState.h>

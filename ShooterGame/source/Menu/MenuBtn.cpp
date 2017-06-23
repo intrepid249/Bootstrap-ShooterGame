@@ -3,7 +3,7 @@
 #include <Font.h>
 #include <Texture.h>
 #include <Input.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager.h>
 
 MenuBtn::MenuBtn() {
 }

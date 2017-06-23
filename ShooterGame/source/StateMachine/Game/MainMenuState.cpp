@@ -1,5 +1,5 @@
 #include <StateMachine\Game\MainMenuState.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager.h>
 #include <ShooterGameApp.h>
 #include <StateMachine\Game\GameStateManager.h>
 #include <Settings.h>

@@ -1,5 +1,5 @@
 #include <Menu\Menu.h>
-#include <ResourceManager\ResourceManager.hpp>
+#include <ResourceManager.h>
 #include <Font.h>
 #include <Texture.h>
 #include <Renderer2D.h>

@@ -2,7 +2,7 @@
 #include <Input.h>
 #include <Texture.h>
 #include <Renderer2D.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager.h>
 #include <Timer.h>
 
 #include<iostream>

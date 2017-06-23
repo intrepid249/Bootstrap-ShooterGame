@@ -2,7 +2,7 @@
 #include <ShooterGameApp.h>
 
 #include <StateMachine\Game\GameState.h>
-#include <ResourceManager\ResourceManager.hpp>
+#include <ResourceManager.h>
 #include <StateMachine\Game\GameStateManager.h>
 
 #include <Renderer2D.h>
@@ -14,16 +14,13 @@
 #include <Entities\GameEntity.h>
 #include <Entities\Player.h>
 
-using namespace RM;
-
 GameState::GameState(ShooterGameApp *app) : IGameState(app) {
-	m_fonts = std::unique_ptr<ResourceManager<aie::Font>>(new ResourceManager<aie::Font>());
-	m_fonts->load(GS_FONT_MAIN, "./font/consolas.ttf", 32);
+	m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
 	m_elapsedTime = 0;
 
-	//m_tex = ResourceManager::loadUniqueResource<aie::Texture>("./textures/player_handgun.png");
-	//m_player = std::unique_ptr<Player>(new Player(m_tex.get()));
-	//m_player->translate(Vector2<float>(500, 500));
+	m_textures[PLAYER_TEX] = ResourceManager::loadUniqueResource<aie::Texture>("./textures/player_handgun.png");
+	m_player = std::unique_ptr<Player>(new Player(m_textures[PLAYER_TEX].get()));
+	m_player->translate(Vector2<float>(500, 500));
 }
 
 GameState::~GameState() {
@@ -35,9 +32,7 @@ void GameState::update(float dt) {
 	m_elapsedTime += dt;
 		
 	aie::Input *input = aie::Input::getInstance();
-	/// Exit the application
-	//if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
-	//	getApp()->quit();
+
 	/// Pause the game
 	if (input->wasKeyPressed(aie::INPUT_KEY_ESCAPE)) {
 		getApp()->getGameStateManager()->pushState((int)eGameStateID::PAUSE_STATE);
@@ -52,8 +47,6 @@ void GameState::render(aie::Renderer2D * renderer) {
 
 	m_player->render(renderer);
 
-	aie::Font *font = m_fonts->find(GS_FONT_MAIN).get();
-
-	renderer->drawText(font, buffer, 10, 30);
-	renderer->drawText(font, "Game State", 10, 10);
+	renderer->drawText(m_font.get(), buffer, 10, 30);
+	renderer->drawText(m_font.get(), "Game State", 10, 10);
 }

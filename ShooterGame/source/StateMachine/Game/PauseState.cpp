@@ -2,7 +2,7 @@
 #include <ShooterGameApp.h>
 #include <Font.h>
 #include <Renderer2D.h>
-#include <ResourceManager\ResourceManager.h>
+#include <ResourceManager.h>
 #include <Settings.h>
 #include <Input.h>
 #include <ShooterGameApp.h>
