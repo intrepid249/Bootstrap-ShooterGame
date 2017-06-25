@@ -151,7 +151,6 @@ public:
 		TreeNode *currentNode = m_rootNode;
 		while (currentNode->m_left) {
 			currentNode = currentNode->m_left;
-			currentNode->visited = false;
 		}
 		currentNode->visited = true;
 		return currentNode;

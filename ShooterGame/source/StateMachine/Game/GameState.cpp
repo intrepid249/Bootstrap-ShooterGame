@@ -15,6 +15,8 @@
 #include <Entities\Player.h>
 #include <Entities\Enemies\Gargant.h>
 
+#include <Entities\EnemyFactory.h>
+
 GameState::GameState(ShooterGameApp *app) : IGameState(app) {
 	m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
 	m_elapsedTime = 0;
@@ -24,8 +26,9 @@ GameState::GameState(ShooterGameApp *app) : IGameState(app) {
 	m_player->translate(Vector2<float>(500, 500));
 
 	m_textures[GARGANT_TEX] = ResourceManager::loadSharedResource<aie::Texture>("./textures/gargant.png");
-	m_gargant = std::unique_ptr<Gargant>(new Gargant(m_textures[GARGANT_TEX].get()));
-	m_gargant->translate(Vector2<float>(800, 300));
+	//m_gargant = std::unique_ptr<Gargant>(new Gargant(m_textures[GARGANT_TEX].get()));
+	m_gargant = EnemyFactory::spawn("gargant", m_textures[GARGANT_TEX].get());
+	m_gargant->translate(Vector2<float>(300, 300));
 }
 
 GameState::~GameState() {
@@ -44,6 +47,7 @@ void GameState::update(float dt) {
 	}
 
 	m_player->update(dt);
+	m_gargant->update(dt);
 }
 
 void GameState::render(aie::Renderer2D * renderer) {
@@ -51,6 +55,7 @@ void GameState::render(aie::Renderer2D * renderer) {
 	sprintf_s(buffer, "%.2f", m_elapsedTime);
 
 	m_player->render(renderer);
+	m_gargant->render(renderer);
 
 	renderer->drawText(m_font.get(), buffer, 10, 30);
 	renderer->drawText(m_font.get(), "Game State", 10, 10);

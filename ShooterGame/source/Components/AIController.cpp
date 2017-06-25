@@ -8,9 +8,6 @@ AIController::AIController() {
 
 
 AIController::~AIController() {
-	for (auto iter = m_states.begin(); iter != m_states.end(); iter++)
-		delete (*iter).second;
-	m_states.clear();
 }
 
 void AIController::update(float dt) {

@@ -28,6 +28,6 @@ protected:
 	std::unique_ptr<aie::Font> m_font;
 	TreeMap<eTexID, std::shared_ptr<aie::Texture>> m_textures;
 	std::unique_ptr<Player>		m_player;
-	std::unique_ptr<Gargant>	m_gargant;
+	std::shared_ptr<GameEntity>	m_gargant;
 };
 

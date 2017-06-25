@@ -83,20 +83,6 @@ TEST_CASE("Container Unit Tests", "[containers]") {
 
 		stringArray.pop_back();
 		REQUIRE(stringArray.size() == 3);
-
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-		stringArray.push_back("Steven");
-
 	}
 
 	SECTION("Queue") { // 3 Memory leaks
