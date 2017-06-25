@@ -1,6 +1,5 @@
 #pragma once
 #include <ArrayList\ArrayList.hpp>
-#include "Pair.hpp"
 
 template <class Key, class Val>
 class Map {
@@ -8,6 +7,7 @@ public:
 	class Pair {
 	public:
 		Pair() = default;
+
 		Pair(const Key& _key) : first(_key), second() {}
 
 		Pair(const Key& _key, const Val& _val) : first(_key), second(_val) {}
@@ -43,13 +43,13 @@ public:
 
 	// TODO: Binary search algorithm?
 	iterator find(const Key &_key) {
-		for (iterator iter = m_elements.begin(); iter != m_elements.end(); iter++) {
+		for (iterator iter = begin(); iter != end(); iter++) {
 			if ((*iter).first == _key)
 				return iter;
 		}
 		return end();
 	}
-	const_iterator find() const {
+	const_iterator find(const Key &_key) const {
 		for (iterator iter = m_elements.begin(); iter != m_elements.end(); iter++) {
 			if ((*iter).first == _key)
 				return iter;

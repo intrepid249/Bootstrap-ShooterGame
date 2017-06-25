@@ -1,14 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bootstrap", "bootstrap\Bootstrap.vcxproj", "{AF59BB0B-E059-4773-83DC-728A949647DA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShooterGame", "ShooterGame\ShooterGame.vcxproj", "{DEA49362-B428-4215-8D64-4EA0B4FF0858}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AF59BB0B-E059-4773-83DC-728A949647DA} = {AF59BB0B-E059-4773-83DC-728A949647DA}
+		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2} = {00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ContainerLibrary", "ContainerLibrary\ContainerLibrary.vcxproj", "{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +33,14 @@ Global
 		{DEA49362-B428-4215-8D64-4EA0B4FF0858}.Release|x64.ActiveCfg = Release|Win32
 		{DEA49362-B428-4215-8D64-4EA0B4FF0858}.Release|x86.ActiveCfg = Release|Win32
 		{DEA49362-B428-4215-8D64-4EA0B4FF0858}.Release|x86.Build.0 = Release|Win32
+		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Debug|x64.ActiveCfg = Debug|x64
+		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Debug|x64.Build.0 = Debug|x64
+		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Debug|x86.ActiveCfg = Debug|Win32
+		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Debug|x86.Build.0 = Debug|Win32
+		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Release|x64.ActiveCfg = Release|x64
+		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Release|x64.Build.0 = Release|x64
+		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Release|x86.ActiveCfg = Release|Win32
+		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

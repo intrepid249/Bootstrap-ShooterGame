@@ -1,6 +1,6 @@
 #include <StateMachine\Game\LoadGameDataState.h>
 #include <Renderer2D.h>
-#include <Font.h>>
+#include <Font.h>
 #include <ShooterGameApp.h>
 #include <StateMachine\Game\GameStateManager.h>
 #include <Settings.h>

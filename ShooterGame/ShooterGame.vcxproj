@@ -96,14 +96,14 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)dependencies\ResourceManager;$(SolutionDir)dependencies\sort\include;$(SolutionDir)dependencies\containers\include;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ContainerLibrary\libs\sort\include\;$(SolutionDir)ContainerLibrary\libs\containers\include\;$(SolutionDir)dependencies\ResourceManager;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\timer\src;$(SolutionDir)dependencies\math\LIB\;$(SolutionDir)temp\bootstrap\$(Configuration);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)dependencies\ResourceManager;$(SolutionDir)dependencies\sort\include;$(SolutionDir)dependencies\containers\include;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ContainerLibrary\libs\sort\include\;$(SolutionDir)ContainerLibrary\libs\containers\include\;$(SolutionDir)dependencies\ResourceManager;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\timer\src;$(SolutionDir)dependencies\math\LIB\;$(SolutionDir)temp\bootstrap\$(Configuration);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

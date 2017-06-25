@@ -2,7 +2,7 @@
 #include "Nodes/Node.h"
 #include <Components\CComponent.h>
 #include <Vector2.h>
-#include <ArrayList\ArrayList.hpp>
+#include <LinkedList\LinkedList.hpp>
 
 /** A rectangular object that can be used to test for collision against other objects
 * @author Jack McCall*/
@@ -24,7 +24,7 @@ public:
 	void updatePointsByMatrix(float *worldMat);
 
 	/** Calculate the normals for each of the faces*/
-	ArrayList<Vector2<float>> calculateFaceNormals();
+	LinkedList<Vector2<float>> calculateFaceNormals();
 
 	/** Check if a point is within the bounding region*/
 	bool contains(Vector2<float> &point);
@@ -43,5 +43,5 @@ protected:
 
 	/**Store the points clockwise from topleft
 	*m_points{[0]topLeft, [1]topRight, [2]bottomRight, [3]bottomLeft}*/
-	ArrayList<Vector2<float>> m_points;
+	LinkedList<Vector2<float>> m_points;
 };

@@ -5,6 +5,7 @@
 #include <memory>
 #include <map>
 #include <ArrayList\ArrayList.hpp>
+#include <LinkedList\LinkedList.hpp>
 #include <Vector2.h>
 
 namespace aie {
@@ -44,6 +45,6 @@ private:
 	float primaryDelay, secondaryDelay;
 	bool isShootingPrimary, canShootPrimary;
 	ArrayList<Bullet*> m_bullets;
-	ArrayList<Node*> m_bulletSpawners;
+	LinkedList<Node*> m_bulletSpawners;
 };
 

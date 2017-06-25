@@ -10,8 +10,6 @@ public:
 	typedef T* iterator;
 	typedef const T* const_iterator;
 
-	ArrayList() : m_capacity(0), m_size(0) {}
-
 	// Remove the copy constructor and assignment operator for dealing with unique_ptr
 	ArrayList(ArrayList const &) = delete;
 	ArrayList &operator=(ArrayList const &) = delete;
@@ -23,6 +21,7 @@ public:
 		return *this;
 	}
 
+	ArrayList() : m_capacity(0), m_size(0) {}
 	ArrayList(unsigned int _capacity) : m_capacity(_capacity), m_size(0) { reserve(_capacity); memset(data, 0, _capacity); }
 	~ArrayList() {
 		if (m_size > 0)
@@ -57,13 +56,16 @@ public:
 		T *temp(new T[m_capacity]);
 		for (unsigned int i = _index; i < m_capacity - 1; ++i)
 			temp[i + 1] = data[i];
+
+		// Append a new item to the specified index
 		data[_index] = item;
+
+		// Copy the existing items back in
 		for (unsigned int i = _index + 1; i < m_capacity; ++i)
 			data[i] = temp[i];
 		delete[] temp;
 
-		// Append a new item to the specified index and update the size
-		data[_index] = item;
+		// update the size
 		m_size++;
 	}
 
@@ -111,7 +113,7 @@ public:
 	T& back() { return data[m_size - 1]; }
 
 	bool empty() { return m_size == 0; }
-	unsigned int size() { return m_size; }
+	unsigned int size() const { return m_size; }
 
 	iterator begin() { return &data[0]; }
 	const_iterator begin() const { return &data[0]; }

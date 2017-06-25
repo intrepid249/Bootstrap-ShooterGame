@@ -2,7 +2,7 @@
 #include "IGameState.h"
 #include <ResourceManager.h>
 #include <memory>
-#include <Map\map.hpp>
+#include <Map\TreeMap.hpp>
 
 class GameEntity;
 class Player;
@@ -25,7 +25,7 @@ protected:
 	float m_elapsedTime;
 
 	std::unique_ptr<aie::Font> m_font;
-	Map<eTexID, std::unique_ptr<aie::Texture>> m_textures;
+	TreeMap<eTexID, std::shared_ptr<aie::Texture>> m_textures;
 	std::unique_ptr<Player> m_player;
 };
 
