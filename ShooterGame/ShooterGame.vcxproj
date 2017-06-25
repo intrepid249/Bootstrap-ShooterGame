@@ -13,9 +13,13 @@
   <ItemGroup>
     <ClInclude Include="include\Colliders\OBB.h" />
     <ClInclude Include="include\Colour.h" />
+    <ClInclude Include="include\Components\AIController.h" />
     <ClInclude Include="include\Components\CComponent.h" />
     <ClInclude Include="include\Components\CSpriteNode.h" />
     <ClInclude Include="include\Components\CWeapon.h" />
+    <ClInclude Include="include\Entities\Enemies\Gargant.h" />
+    <ClInclude Include="include\Entities\Enemies\IAI.h" />
+    <ClInclude Include="include\Entities\EnemyFactory.h" />
     <ClInclude Include="include\Entities\GameEntity.h" />
     <ClInclude Include="include\Entities\Player.h" />
     <ClInclude Include="include\Entities\Weapons\Bullet.h" />
@@ -26,6 +30,8 @@
     <ClInclude Include="include\ResourceManager\ResourceManager.h" />
     <ClInclude Include="include\Settings.h" />
     <ClInclude Include="include\ShooterGameApp.h" />
+    <ClInclude Include="include\StateMachine\AI\AIWanderState.h" />
+    <ClInclude Include="include\StateMachine\AI\IAIState.h" />
     <ClInclude Include="include\StateMachine\Game\GameState.h" />
     <ClInclude Include="include\StateMachine\Game\GameStateManager.h" />
     <ClInclude Include="include\StateMachine\Game\IGameState.h" />
@@ -37,6 +43,10 @@
     <ClInclude Include="include\Components\CPlayerController.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Entities\Enemies\Gargant.cpp" />
+    <ClCompile Include="source\StateMachine\AI\AIWanderState.cpp" />
+    <ClCompile Include="source\Components\AIController.cpp" />
+    <ClCompile Include="source\Entities\EnemyFactory.cpp" />
     <ClCompile Include="source\StateMachine\Game\LoadGameDataState.cpp" />
     <ClCompile Include="source\Components\CPlayerController.cpp" />
     <ClCompile Include="source\Entities\Player.cpp" />

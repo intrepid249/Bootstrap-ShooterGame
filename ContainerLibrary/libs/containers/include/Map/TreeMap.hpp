@@ -1,5 +1,6 @@
 #pragma once
 
+/** With help from Sebastian Toy*/
 template <class K, class V>
 class TreeMap {
 public:
@@ -121,7 +122,7 @@ public:
 		}
 
 		// Postfix
-		TreeIterator& operator++(int) {
+		TreeIterator operator++(int) {
 			TreeIterator result(*this);
 			++(*this);
 			return result;
@@ -136,7 +137,9 @@ public:
 	};
 
 	TreeMap() = default;
-	~TreeMap() { clear(); }
+	~TreeMap() { 
+		clear(); 
+	}
 
 	TreeIterator begin() { return TreeIterator(getFirstNode()); }
 	TreeIterator end() { return TreeIterator(nullptr); }
@@ -155,7 +158,8 @@ public:
 	}
 
 	void clear() {
-		recurDestroy(m_rootNode);
+		if (m_rootNode)
+			recurDestroy(m_rootNode);
 	}
 
 	// Add a pair to the map and sort it into the binary tree
@@ -165,19 +169,18 @@ public:
 
 		// Binary Tree is empty, set root node
 		if (m_rootNode == nullptr) {
-			// parent is root
-			newNode->m_parent = m_rootNode;
 			m_rootNode = newNode;
 			return;
 		}
 
 		// Search starts at root of tree
 		TreeNode *currentParent = m_rootNode;
-		// Find the target parent with null spot for new child
+
+		// Find the target parent with position for new child
 		while (currentParent) {
 			targetParent = currentParent;
 			// There are duplicate keys, insert aborted
-			if (_pair->first = currentParent->getFirst()) {
+			if (_pair->first == currentParent->getFirst()) {
 				// Take resposibility of dynamically allocated memory and free up memory for unused nodes
 				delete newNode;
 				delete _pair;
@@ -218,14 +221,14 @@ public:
 		if (iter)
 			return (*iter).second;
 
-		return insertDefault(_key).second;
+		return insertDefault(_key)->second;
 	}
 
 private:
-	PairNode& insertDefault(const K &_key) {
+	PairNode* insertDefault(const K &_key) {
 		PairNode *newNode = new PairNode(_key);
 		Insert(newNode);
-		return *newNode;
+		return newNode;
 	}
 
 	// Recursion to destroy entire tree and clean up allocated memory

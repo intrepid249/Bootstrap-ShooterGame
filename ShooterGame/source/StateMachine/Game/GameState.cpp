@@ -13,6 +13,7 @@
 #include <Components\CSpriteNode.h>
 #include <Entities\GameEntity.h>
 #include <Entities\Player.h>
+#include <Entities\Enemies\Gargant.h>
 
 GameState::GameState(ShooterGameApp *app) : IGameState(app) {
 	m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
@@ -21,6 +22,10 @@ GameState::GameState(ShooterGameApp *app) : IGameState(app) {
 	m_textures[PLAYER_TEX] = ResourceManager::loadSharedResource<aie::Texture>("./textures/player_handgun.png");
 	m_player = std::unique_ptr<Player>(new Player(m_textures[PLAYER_TEX].get()));
 	m_player->translate(Vector2<float>(500, 500));
+
+	m_textures[GARGANT_TEX] = ResourceManager::loadSharedResource<aie::Texture>("./textures/gargant.png");
+	m_gargant = std::unique_ptr<Gargant>(new Gargant(m_textures[GARGANT_TEX].get()));
+	m_gargant->translate(Vector2<float>(800, 300));
 }
 
 GameState::~GameState() {

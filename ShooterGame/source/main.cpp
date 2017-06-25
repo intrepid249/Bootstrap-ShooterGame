@@ -28,6 +28,9 @@ void cleanMemory(int signum) {
 }
 
 int main() {
+	// Check for any memory leaks
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 	// Activate the signals to handle memory when the program encounters an error
 	signal(SIGINT, cleanMemory); /// Detection of interactive attention signal
 	signal(SIGABRT, cleanMemory); /// Abnormal termination

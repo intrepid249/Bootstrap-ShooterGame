@@ -23,7 +23,7 @@ public:
 	}
 	void pop() {
 		assert((size() > 0 && m_data.size() > 0) && "Cannot pop from empty container");
-		m_data.erase(size() - 1);
+		//m_data.erase(end() - 1);
 	}
 
 	/** Return the element at the front of the queue*/

@@ -5,6 +5,7 @@
 ////					objects
 ////
 
+#include <time.h>
 #include <iostream>
 #include <string>
 using std::string;
@@ -61,67 +62,81 @@ TEST_CASE("Container Unit Tests", "[containers]") {
 		REQUIRE(iterCount == intList.size());
 	}
 
-	//SECTION("Array List") {
-	//	ArrayList<string> stringArray;
+	SECTION("Array List") {
+		ArrayList<string> stringArray;
 
-	//	REQUIRE(stringArray.empty());
+		REQUIRE(stringArray.empty());
 
-	//	stringArray.push_back("Hello");
-	//	stringArray.push_back("Hi");
-	//	stringArray.push_back("Index 2");
-	//	stringArray.push_back("Steven");
+		stringArray.push_back("Hello");
+		stringArray.push_back("Hi");
+		stringArray.push_back("Index 2");
+		stringArray.push_back("Steven");
 
-	//	REQUIRE(stringArray.size() == 4);
+		REQUIRE(stringArray.size() == 4);
 
-	//	stringArray.insert_at(1, "boop");
+		stringArray.insert_at(1, "boop");
 
-	//	REQUIRE(stringArray[1] == "boop");
+		REQUIRE(stringArray[1] == "boop");
 
-	//	stringArray.erase_at(3);
-	//	REQUIRE(stringArray[0] != "Index 2");
+		stringArray.erase_at(3);
+		REQUIRE(stringArray[0] != "Index 2");
 
-	//	stringArray.pop_back();
-	//	REQUIRE(stringArray.size() == 3);
-	//}
+		stringArray.pop_back();
+		REQUIRE(stringArray.size() == 3);
 
-	//SECTION("Queue") { // 3 Memory leaks
-	//	Queue<int> testQueue;
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
+		stringArray.push_back("Steven");
 
-	//	REQUIRE(testQueue.empty());
+	}
 
-	//	testQueue.push(10);
-	//	testQueue.push(20);
-	//	testQueue.push(30);
-	//	testQueue.push(40);
+	SECTION("Queue") { // 3 Memory leaks
+		//Queue<int> testQueue;
 
-	//	REQUIRE(testQueue.front() == 10);
-	//	REQUIRE(testQueue.back() == 40);
-	//	REQUIRE(testQueue.size() == 4);
+		//REQUIRE(testQueue.empty());
 
-	//	testQueue.pop();
-	//	REQUIRE((testQueue.back() == 30 && testQueue.size() == 3));
-	//}
+		//testQueue.push(10);
+		//testQueue.push(20);
+		//testQueue.push(30);
+		//testQueue.push(40);
 
-	//SECTION("Stack") {
-	//	Stack<int> testStack;
+		//REQUIRE(testQueue.front() == 10);
+		//REQUIRE(testQueue.back() == 40);
+		//REQUIRE(testQueue.size() == 4);
 
-	//	REQUIRE(testStack.empty());
+		//testQueue.pop();
+		//REQUIRE((testQueue.back() == 30 && testQueue.size() == 3));
+	}
 
-	//	testStack.push(10);
-	//	testStack.push(20);
-	//	testStack.push(30);
-	//	testStack.push(40);
+	SECTION("Stack") {
+		Stack<int> testStack;
 
-	//	REQUIRE(testStack.top() == 40);
-	//	REQUIRE(testStack.size() == 4);
+		REQUIRE(testStack.empty());
 
-	//	testStack.pop();
-	//	REQUIRE((testStack.top() == 30 && testStack.size() == 3));
-	//}
+		testStack.push(10);
+		testStack.push(20);
+		testStack.push(30);
+		testStack.push(40);
 
-	//SECTION("Map") {
-	//	Map<int, int> testMap;
-	//}
+		REQUIRE(testStack.top() == 40);
+		REQUIRE(testStack.size() == 4);
+
+		testStack.pop();
+		REQUIRE((testStack.top() == 30 && testStack.size() == 3));
+	}
+
+	SECTION("Map") {
+		Map<int, int> testMap;
+	}
 }
 
 TEST_CASE("Sorting", "[sort]") {
@@ -158,6 +173,10 @@ TEST_CASE("Sorting", "[sort]") {
 	}
 }
 
+struct Thing {
+	Thing(int _a) : x(_a) {}
+	int x;
+};
 
 auto main(int argc, char** argv) -> int {
 	// Check for any memory leaks
@@ -225,16 +244,18 @@ auto main(int argc, char** argv) -> int {
 	for (auto iter = tList.begin(); iter != tList.end(); ++iter)
 		std::cout << *iter << "\n";
 
-	//TreeMap<int, const char *> tMap;
+	//TreeMap<int, std::unique_ptr<Thing>> tMap;
 
-	//tMap[0] = "Hello";
-	//tMap[1] = "boo";
+	//tMap[1] = std::unique_ptr<Thing>(new Thing(10));
+
+	//for (auto iter = tMap.begin(); iter != tMap.end(); iter++)
+	//	std::cout << (*iter).second->x << "\n";
 
 
 #endif
 
 	int result = Catch::Session().run(argc, argv);
 
-	system("pause");
+	Sleep(10000);
 	return (result < 0xff ? result : 0xff);
 }

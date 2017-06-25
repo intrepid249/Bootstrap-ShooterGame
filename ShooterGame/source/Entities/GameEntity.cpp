@@ -26,7 +26,6 @@ GameEntity::GameEntity(aie::Texture * tex) : m_particleType(tex) {
 	m_collider = obb.get();
 	obb->setParent(this);
 
-
 	addComponent(std::move(sprite));
 	addComponent(std::move(obb));
 }
