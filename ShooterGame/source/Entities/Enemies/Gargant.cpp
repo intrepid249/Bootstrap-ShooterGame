@@ -10,7 +10,7 @@ Gargant::Gargant() {
 }
 
 Gargant::Gargant(aie::Texture * tex) : GameEntity(tex) {
-	std::shared_ptr<AIController> gController = std::shared_ptr<AIController>(new AIController);
+	std::unique_ptr<AIController> gController = std::unique_ptr<AIController>(new AIController);
 	gController->addState("wander", new AIWanderState(this));
 	gController->setState("wander");
 

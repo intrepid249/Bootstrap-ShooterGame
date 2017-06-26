@@ -1,7 +1,7 @@
 #pragma once
 #include <Nodes/Node.h>
 #include <memory>
-#include <LinkedList\LinkedList.hpp>
+#include <vector>
 
 class CComponent;
 class OBB;
@@ -32,9 +32,15 @@ public:
 	/** Get a pointer to the collider box*/
 	OBB* getCollider();
 
+	template <typename T>
+	T& getComponentOfType();
+
+
+
 	/** Get a pointer to the particle texture*/
 	virtual aie::Texture* getParticleType();
 
+	/** Add components to define behaviour*/
 	virtual void addComponent(std::shared_ptr<CComponent> component);
 
 protected:
@@ -43,5 +49,5 @@ protected:
 
 	OBB *m_collider;
 
-	LinkedList<std::shared_ptr<CComponent>> m_components;
+	std::vector<std::shared_ptr<CComponent>> m_components;
 };

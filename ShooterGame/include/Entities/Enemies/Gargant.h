@@ -1,5 +1,5 @@
 #pragma once
-#include <Entities\Enemies\IAI.h>
+#include <Entities\GameEntity.h>
 
 namespace aie {
 	class Texture;

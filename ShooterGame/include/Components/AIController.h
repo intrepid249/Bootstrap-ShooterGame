@@ -1,6 +1,6 @@
 #pragma once
 #include <Components\CComponent.h>
-#include <Map\TreeMap.hpp>
+#include <map>
 #include <Nodes\Node.h>
 
 class IAIState;
@@ -20,7 +20,7 @@ public:
 	void setState(const char *name);
 
 private:
-	TreeMap<const char *, IAIState*> m_states;
+	std::map<const char *, IAIState*> m_states;
 	IAIState *m_activeState;
 };
 

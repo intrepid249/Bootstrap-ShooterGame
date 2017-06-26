@@ -1,6 +1,7 @@
 #include <StateMachine\AI\AIWanderState.h>
 #include <Entities\GameEntity.h>
 #include <Vector2.h>
+#include <Components\AIController.h>
 
 
 AIWanderState::AIWanderState(GameEntity *parent) : IAIState(parent) {

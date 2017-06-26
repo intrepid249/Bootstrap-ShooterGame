@@ -9,6 +9,9 @@
 #include <Components\CSpriteNode.h>
 #include <Components\CPlayerController.h>
 
+#include <jm_utility.h>
+using namespace instanceof;
+
 
 GameEntity::GameEntity() {
 }
@@ -42,7 +45,14 @@ void GameEntity::update(float dt) {
 	}
 }
 
-
+template <typename T>
+T& GameEntity::getComponentOfType() {
+	for (auto iter = m_components.begin(); iter != m_components.end(); iter++) {
+		if (dynamic_cast<T>(*iter) != nullptr) {
+			return (*iter);
+		}
+	}
+}
 
 void GameEntity::render(aie::Renderer2D * renderer) {
 	if (m_isDrawn) {

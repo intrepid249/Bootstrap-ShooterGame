@@ -15,10 +15,10 @@
     <ClInclude Include="include\Colour.h" />
     <ClInclude Include="include\Components\AIController.h" />
     <ClInclude Include="include\Components\CComponent.h" />
+    <ClInclude Include="include\Components\CRigidBody.h" />
     <ClInclude Include="include\Components\CSpriteNode.h" />
     <ClInclude Include="include\Components\CWeapon.h" />
     <ClInclude Include="include\Entities\Enemies\Gargant.h" />
-    <ClInclude Include="include\Entities\Enemies\IAI.h" />
     <ClInclude Include="include\Entities\EnemyFactory.h" />
     <ClInclude Include="include\Entities\GameEntity.h" />
     <ClInclude Include="include\Entities\Player.h" />
@@ -41,8 +41,10 @@
     <ClInclude Include="include\StateMachine\Game\SplashState.h" />
     <ClInclude Include="include\Menu\MenuBtn.h" />
     <ClInclude Include="include\Components\CPlayerController.h" />
+    <ClInclude Include="include\Utilities\jm_utility.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Components\CRigidBody.cpp" />
     <ClCompile Include="source\Entities\Enemies\Gargant.cpp" />
     <ClCompile Include="source\StateMachine\AI\AIWanderState.cpp" />
     <ClCompile Include="source\Components\AIController.cpp" />
@@ -106,14 +108,14 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)ContainerLibrary\libs\sort\include\;$(SolutionDir)ContainerLibrary\libs\containers\include\;$(SolutionDir)dependencies\ResourceManager;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)include\Utilities\;$(SolutionDir)ContainerLibrary\libs\sort\include\;$(SolutionDir)ContainerLibrary\libs\containers\include\;$(SolutionDir)dependencies\ResourceManager;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\timer\src;$(SolutionDir)dependencies\math\LIB\;$(SolutionDir)temp\bootstrap\$(Configuration);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)temp\$(ProjectName)\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)ContainerLibrary\libs\sort\include\;$(SolutionDir)ContainerLibrary\libs\containers\include\;$(SolutionDir)dependencies\ResourceManager;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)include\Utilities\;$(SolutionDir)ContainerLibrary\libs\sort\include\;$(SolutionDir)ContainerLibrary\libs\containers\include\;$(SolutionDir)dependencies\ResourceManager;$(SolutionDir)dependencies\timer\include;$(SolutionDir)dependencies\GLFW\include;$(SolutionDir)dependencies\math\Include;$(ProjectDir)include;$(SolutionDir)bootstrap;$(SolutionDir)dependencies/imgui;$(SolutionDir)dependencies/glm;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)dependencies\timer\src;$(SolutionDir)dependencies\math\LIB\;$(SolutionDir)temp\bootstrap\$(Configuration);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -96,13 +96,16 @@
     <ClInclude Include="include\StateMachine\AI\IAIState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Entities\Enemies\IAI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\StateMachine\AI\AIWanderState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Entities\Enemies\Gargant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utilities\jm_utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Components\CRigidBody.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -174,6 +177,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Entities\Enemies\Gargant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Components\CRigidBody.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

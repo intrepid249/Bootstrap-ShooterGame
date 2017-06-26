@@ -4,8 +4,7 @@
 #include <Entities\Weapons\Bullet.h>
 #include <memory>
 #include <map>
-#include <ArrayList\ArrayList.hpp>
-#include <LinkedList\LinkedList.hpp>
+#include <vector>
 #include <Vector2.h>
 
 namespace aie {
@@ -34,7 +33,7 @@ public:
 private:
 	bool mouseInput;
 	void updateControls(aie::Input *input);
-	void reset();
+	//void reset();
 	void shootPrimary();
 
 	enum class EControlID { PRIMARY_FIRE, SECONDARY_FIRE, RELOAD };
@@ -44,7 +43,7 @@ private:
 
 	float primaryDelay, secondaryDelay;
 	bool isShootingPrimary, canShootPrimary;
-	ArrayList<Bullet*> m_bullets;
-	LinkedList<Node*> m_bulletSpawners;
+	std::vector<Bullet*> m_bullets;
+	std::vector<Node*> m_bulletSpawners;
 };
 

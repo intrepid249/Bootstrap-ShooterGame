@@ -12,12 +12,12 @@ Player::Player() {
 Player::Player(aie::Texture * tex) : GameEntity(tex) {
 	/// COMPONENTS
 	// Add a player controller component
-	std::shared_ptr<CPlayerController> pController = std::shared_ptr<CPlayerController>(new CPlayerController());
+	std::unique_ptr<CPlayerController> pController = std::unique_ptr<CPlayerController>(new CPlayerController());
 	pController->setControls(aie::INPUT_KEY_W, aie::INPUT_KEY_S, aie::INPUT_KEY_A, aie::INPUT_KEY_D);
 	pController->setParent(this);
 
 	// Add a weapon component
-	std::shared_ptr<CWeapon> pWeapon = std::shared_ptr<CWeapon>(new CWeapon());
+	std::unique_ptr<CWeapon> pWeapon = std::unique_ptr<CWeapon>(new CWeapon());
 	pWeapon->setControls(true, aie::INPUT_MOUSE_BUTTON_LEFT, aie::INPUT_MOUSE_BUTTON_RIGHT);
 	pWeapon->setPrimaryDelay(300);
 	pWeapon->addBulletSpawner(Vector2<float>(getSize().x * getScale().x, getSize().y / 2 * getScale().y));
