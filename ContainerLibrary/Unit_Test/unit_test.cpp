@@ -219,7 +219,7 @@ auto main(int argc, char** argv) -> int {
 #pragma endregion
 #endif
 
-#if 1
+#if 0
 	LinkedList<int> tList;
 	tList.push_back(1);
 	tList.push_back(2);

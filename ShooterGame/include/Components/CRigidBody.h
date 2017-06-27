@@ -9,7 +9,7 @@ namespace aie {
 class CRigidBody :
 	public CComponent {
 public:
-	CRigidBody();
+	CRigidBody(Vector2<float> _maxVelocity = Vector2<float>(150, 150), Vector2<float> _maxForce = Vector2<float>(20, 20));
 	virtual ~CRigidBody();
 
 	void update(float dt);
@@ -19,8 +19,11 @@ public:
 	void addForce(float x, float y);
 	void addForce(Vector2<float> force);
 
+	void setMaxVelocity(Vector2<float> _maxVelocity = Vector2<float>(150, 150));
+	void setMaxForce(Vector2<float> _maxForce = Vector2<float>(20, 20));
+
 private:
-	Vector2<float> m_velocity, maxVelocity;
+	Vector2<float> m_velocity, maxVelocity, maxForce;
 
 };
 

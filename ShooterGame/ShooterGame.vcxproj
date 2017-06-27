@@ -31,7 +31,9 @@
     <ClInclude Include="include\Settings.h" />
     <ClInclude Include="include\ShooterGameApp.h" />
     <ClInclude Include="include\StateMachine\AI\AIWanderState.h" />
+    <ClInclude Include="include\StateMachine\AI\Behaviours\SteeringBehaviour.h" />
     <ClInclude Include="include\StateMachine\AI\IAIState.h" />
+    <ClInclude Include="include\StateMachine\AI\Behaviours\ISteeringForce.h" />
     <ClInclude Include="include\StateMachine\Game\GameState.h" />
     <ClInclude Include="include\StateMachine\Game\GameStateManager.h" />
     <ClInclude Include="include\StateMachine\Game\IGameState.h" />
@@ -68,6 +70,7 @@
     <ClCompile Include="source\Components\CSpriteNode.cpp" />
     <ClCompile Include="source\Entities\Weapons\Weapon.cpp" />
     <ClCompile Include="source\Components\CWeapon.cpp" />
+    <ClCompile Include="source\StateMachine\AI\Behaviours\SteeringBehaviour.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
