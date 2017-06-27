@@ -23,13 +23,13 @@
     <ClInclude Include="include\Entities\GameEntity.h" />
     <ClInclude Include="include\Entities\Player.h" />
     <ClInclude Include="include\Entities\Weapons\Bullet.h" />
-    <ClInclude Include="include\Entities\Weapons\Weapon.h" />
     <ClInclude Include="include\Menu\Menu.h" />
     <ClInclude Include="include\Nodes\Node.h" />
     <ClInclude Include="include\ResourceManager\ErrorManager.h" />
     <ClInclude Include="include\ResourceManager\ResourceManager.h" />
     <ClInclude Include="include\Settings.h" />
     <ClInclude Include="include\ShooterGameApp.h" />
+    <ClInclude Include="include\StateMachine\AI\AISeekState.h" />
     <ClInclude Include="include\StateMachine\AI\AIWanderState.h" />
     <ClInclude Include="include\StateMachine\AI\Behaviours\SteeringBehaviour.h" />
     <ClInclude Include="include\StateMachine\AI\IAIState.h" />
@@ -46,6 +46,7 @@
     <ClInclude Include="include\Utilities\jm_utility.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\StateMachine\AI\AISeekState.cpp" />
     <ClCompile Include="source\Components\CRigidBody.cpp" />
     <ClCompile Include="source\Entities\Enemies\Gargant.cpp" />
     <ClCompile Include="source\StateMachine\AI\AIWanderState.cpp" />
@@ -68,7 +69,6 @@
     <ClCompile Include="source\ShooterGameApp.cpp" />
     <ClCompile Include="source\StateMachine\Game\SplashState.cpp" />
     <ClCompile Include="source\Components\CSpriteNode.cpp" />
-    <ClCompile Include="source\Entities\Weapons\Weapon.cpp" />
     <ClCompile Include="source\Components\CWeapon.cpp" />
     <ClCompile Include="source\StateMachine\AI\Behaviours\SteeringBehaviour.cpp" />
   </ItemGroup>

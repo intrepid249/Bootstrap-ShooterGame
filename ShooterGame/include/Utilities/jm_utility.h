@@ -1,6 +1,6 @@
 #pragma once
-#ifdef _USE_MATH_UTILS
-#include <math.h>
+#ifndef _USE_MATH_UTILS
+#include <algorithm>
 #endif // _USE_MATH_UTILS
 
 namespace instanceof {
@@ -11,9 +11,8 @@ namespace instanceof {
 }
 
 namespace math_utils {
-#include <math.h>
 	template <typename T>
-	T clamp(T val, T min, T max) {
-		return std::max_align_t(min, std::min(n, max));
+	T clamp(T _val, T _min, T _max) {
+		return std::max(_min, std::min(_val, _max));
 	}
 }

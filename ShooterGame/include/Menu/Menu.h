@@ -2,7 +2,7 @@
 #include <Settings.h>
 #include <memory>
 
-#include <ArrayList\ArrayList.hpp>
+#include <vector>
 
 class MenuBtn;
 namespace aie {
@@ -42,7 +42,7 @@ private:
 	bool m_useSpriteSheet;
 	float m_titleWidth, m_titleHeight;
 
-	ArrayList<std::unique_ptr<MenuBtn>>	m_buttons;
+	std::vector<std::unique_ptr<MenuBtn>>	m_buttons;
 
 	MRECT m_bounds;
 

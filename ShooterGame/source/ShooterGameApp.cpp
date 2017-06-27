@@ -11,6 +11,7 @@
 #include <StateMachine\Game\MainMenuState.h>
 #include <StateMachine\Game\LoadGameDataState.h>
 
+
 ShooterGameApp::ShooterGameApp() {
 }
 
@@ -27,7 +28,7 @@ bool ShooterGameApp::startup() {
 	m_gameStateManager->setState((int)eGameStateID::MAIN_MENU_STATE, new MainMenuState(this));
 	m_gameStateManager->setState((int)eGameStateID::LOAD_GAME_DATA, new LoadGameDataState(this));
 
-	m_gameStateManager->pushState((int)eGameStateID::SPLASH_STATE);
+	m_gameStateManager->pushState((int)eGameStateID::GAME_STATE);
 
 	return true;
 }

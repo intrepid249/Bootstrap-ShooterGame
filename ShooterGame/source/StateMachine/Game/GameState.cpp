@@ -17,6 +17,10 @@
 
 #include <Entities\EnemyFactory.h>
 
+#include <imgui.h>
+#include <ShooterGameApp.h>
+#include <GLFW\glfw3.h>
+
 GameState::GameState(ShooterGameApp *app) : IGameState(app) {
 	m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
 	m_elapsedTime = 0;
@@ -29,12 +33,28 @@ GameState::GameState(ShooterGameApp *app) : IGameState(app) {
 	//m_gargant = std::unique_ptr<Gargant>(new Gargant(m_textures[GARGANT_TEX].get()));
 	m_gargant = EnemyFactory::spawn("gargant", m_textures[GARGANT_TEX].get());
 	m_gargant->translate(Vector2<float>(300, 300));
+
+	strcpy_s(m_windowTitle, "Endlesssss");
 }
 
 GameState::~GameState() {
 }
 
 void GameState::update(float dt) {
+
+	//https://github.com/ocornut/imgui/blob/master/examples/opengl3_example/main.cpp
+	//https://eliasdaler.github.io/using-imgui-with-sfml-pt1/
+	//https://eliasdaler.github.io/using-imgui-with-sfml-pt2/
+	ImGui::SetWindowPos(ImVec2(0, 0));
+	ImGui::SetWindowSize(ImVec2(350, 600));
+	ImGui::Text("Hello World");
+
+	ImGui::InputText("Window Title", m_windowTitle, 255);
+
+	if (ImGui::Button("Update Window Title"))
+		glfwSetWindowTitle(getApp()->getWindowPtr(), m_windowTitle);
+
+
 	if (getApp()->getGameStateManager()->getTopState() != this) return;
 
 	m_elapsedTime += dt;
@@ -48,6 +68,8 @@ void GameState::update(float dt) {
 
 	m_player->update(dt);
 	m_gargant->update(dt);
+
+	ImGui::Render();
 }
 
 void GameState::render(aie::Renderer2D * renderer) {
