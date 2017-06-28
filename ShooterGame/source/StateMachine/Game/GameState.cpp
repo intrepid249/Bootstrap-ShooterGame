@@ -21,6 +21,9 @@
 #include <ShooterGameApp.h>
 #include <GLFW\glfw3.h>
 
+#include <INI.h>
+typedef INI<> ini_t;
+
 GameState::GameState(ShooterGameApp *app) : IGameState(app) {
 	m_font = ResourceManager::loadUniqueResource<aie::Font>("./font/consolas.ttf", 32);
 	m_elapsedTime = 0;
@@ -35,6 +38,8 @@ GameState::GameState(ShooterGameApp *app) : IGameState(app) {
 	m_gargant->translate(Vector2<float>(300, 300));
 
 	strcpy_s(m_windowTitle, "Endlesssss");
+	m_windowHeight = m_windowWidth = 0;
+	m_windowFullscreen = false;
 }
 
 GameState::~GameState() {
@@ -45,14 +50,32 @@ void GameState::update(float dt) {
 	//https://github.com/ocornut/imgui/blob/master/examples/opengl3_example/main.cpp
 	//https://eliasdaler.github.io/using-imgui-with-sfml-pt1/
 	//https://eliasdaler.github.io/using-imgui-with-sfml-pt2/
+	ImGui::Begin("Window Options");
 	ImGui::SetWindowPos(ImVec2(0, 0));
 	ImGui::SetWindowSize(ImVec2(350, 600));
-	ImGui::Text("Hello World");
 
 	ImGui::InputText("Window Title", m_windowTitle, 255);
+	//ImGui::InputInt("Window Width", m_windowWidth);
+	//ImGui::InputInt("Window Height", m_windowHeight);
+	//ImGui::Checkbox("Window Fullscreen", m_windowFullscreen);
 
-	if (ImGui::Button("Update Window Title"))
+	if (ImGui::Button("Update Window")) {
 		glfwSetWindowTitle(getApp()->getWindowPtr(), m_windowTitle);
+		//glfwSetWindowSize(getApp()->getWindowPtr(), *m_windowWidth, *m_windowHeight);
+	}
+	if (ImGui::Button("Save Window Config")) {
+		ini_t ini("config/settings.ini", true);
+		ini.create("DisplayOptions");
+		//ini.set("WindowTitle", m_windowTitle);
+		//ini.set("WindowWidth", *m_windowWidth);
+		//ini.set("WindowHeight", *m_windowHeight);
+		//ini.set("WindowFullscreen", *m_windowFullscreen);
+
+		ini.save();
+		ini.clear();
+	}
+	ImGui::End();
+	
 
 
 	if (getApp()->getGameStateManager()->getTopState() != this) return;

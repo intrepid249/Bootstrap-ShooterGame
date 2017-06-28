@@ -5,6 +5,9 @@
 #include <signal.h>
 #include <Windows.h>
 
+#include <INI.h>
+typedef INI<> ini_t;
+
 ///////////////////////////////////////////////////////////////////////////////////
 ////	Created by:		Jack McCall
 ////	Description:	A simple top-down shooter game. Defend your base from the enemy
@@ -14,6 +17,8 @@
 ////
 
 ShooterGameApp *app;
+
+#include <iostream>
 
 /** This function handles safe cleaning of memory in the event of system crash*/
 void cleanMemory(int signum) {
@@ -46,8 +51,20 @@ int main() {
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
 	//==========================================================
+
+
+	// Load settings in from config file
+	system("mkdir config");
+	ini_t ini("config/settings.ini", true);
+
+	ini.select("DisplayOptions");
 	app = new ShooterGameApp();
-	app->run(APPTITLE, SCREENWIDTH, SCREENHEIGHT, FULLSCREEN);
+
+	std::string title = ini.get("WindowTitle");
+
+	app->run(title.c_str(), SCREENWIDTH, SCREENHEIGHT, FULLSCREEN);
+
+	ini.clear();
 	delete app;
 
 	return 0;

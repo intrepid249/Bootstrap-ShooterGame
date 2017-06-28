@@ -32,5 +32,7 @@ protected:
 
 
 	char m_windowTitle[255];
+	int *m_windowWidth, *m_windowHeight;
+	bool *m_windowFullscreen;
 };
 
