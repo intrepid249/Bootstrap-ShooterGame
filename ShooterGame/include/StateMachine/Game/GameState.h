@@ -34,5 +34,7 @@ protected:
 	std::vector<std::shared_ptr<GameEntity>> m_entities;
 
 	char m_windowTitle[255];
+	int *m_windowWidth, *m_windowHeight;
+	bool *m_windowFullscreen;
 };
 
