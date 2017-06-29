@@ -3,6 +3,7 @@
 #include <ResourceManager.h>
 #include <memory>
 #include <map>
+#include <vector>
 
 class GameEntity;
 class Player;
@@ -20,6 +21,8 @@ public:
 	virtual void update(float dt);
 	virtual void render(aie::Renderer2D *renderer);
 
+	std::vector<std::shared_ptr<GameEntity>> getWorldEntities();
+
 protected:
 	enum eTexID { PLAYER_TEX, GARGANT_TEX };
 
@@ -27,9 +30,8 @@ protected:
 
 	std::unique_ptr<aie::Font> m_font;
 	std::map<eTexID, std::shared_ptr<aie::Texture>> m_textures;
-	std::unique_ptr<Player>		m_player;
-	std::shared_ptr<GameEntity>	m_gargant;
 
+	std::vector<std::shared_ptr<GameEntity>> m_entities;
 
 	char m_windowTitle[255];
 };

@@ -14,6 +14,9 @@ public:
 	explicit operator T* ();								// *
 	Vector2 operator -() const;
 	T operator [](unsigned int index);
+
+	bool operator ==(Vector2& rhs);
+	bool operator !=(Vector2& rhs);
 #pragma endregion
 
 #pragma region Comparative Operators

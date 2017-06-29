@@ -8,8 +8,8 @@ EnemyFactory::EnemyFactory() {
 EnemyFactory::~EnemyFactory() {
 }
 
-std::shared_ptr<GameEntity> EnemyFactory::spawn(const char * id, aie::Texture * tex) {
+std::shared_ptr<GameEntity> EnemyFactory::spawn(const char * id, aie::Texture * tex, IGameState *_app) {
 	if (id == "gargant")
-		return std::shared_ptr<Gargant>(new Gargant(tex));
+		return std::shared_ptr<Gargant>(new Gargant(tex, _app));
 	return nullptr;
 }

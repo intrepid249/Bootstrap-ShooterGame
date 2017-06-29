@@ -22,8 +22,8 @@ void AIController::update(float dt) {
 		setState(newStateName);
 }
 
-void AIController::addState(const char * name, IAIState * state) {
-	m_states[name] = state;
+void AIController::addState(const char * name, std::shared_ptr<IAIState> state) {
+	m_states[name] = std::move(state);
 }
 
 void AIController::setState(const char * newStateName) {
@@ -32,6 +32,6 @@ void AIController::setState(const char * newStateName) {
 		m_activeState->exitActions();
 
 	// Switch to the new state and perform startup actions
-	m_activeState = m_states[newStateName];
+	m_activeState = m_states[newStateName].get();
 	m_activeState->entryActions();
 }

@@ -86,7 +86,7 @@ void CWeapon::updateControls(aie::Input * input) {
 void CWeapon::shootPrimary() {
 	canShootPrimary = false;
 	std::cout << "Shoot\n";
-	Bullet *b = new Bullet(bTex.get());
+	Bullet *b = new Bullet(bTex.get(), dynamic_cast<GameEntity*>(m_parent)->getAppState());
 	b->setLifetime(5);
 	b->setMoveSpeed(200);
 	b->translate(calculateGlobalTransform().getTranslation());

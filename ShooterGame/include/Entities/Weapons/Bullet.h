@@ -2,6 +2,8 @@
 #include <Entities/GameEntity.h>
 #include <Texture.h>
 
+class IGameState;
+
 /** Object with a movement speed in its forward direction and a set lifetime
 * @author Jack McCall*/
 class Bullet : public GameEntity {
@@ -9,7 +11,7 @@ public:
 	Bullet();
 	/** Create a new bullet object
 	* @param tex - pointer to the loaded texture*/
-	Bullet(aie::Texture *tex);
+	Bullet(aie::Texture *tex, IGameState *_app);
 	~Bullet();
 
 	/** Overload the parent's update function

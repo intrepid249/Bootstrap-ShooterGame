@@ -40,3 +40,19 @@ struct MRECT {
 	}
 };
 #pragma endregion
+
+namespace grid {
+	struct GPoint {
+		GPoint() = default;
+		GPoint(int _x, int _y) : x(_x), y(_y) {}
+
+		int x, y;
+
+		bool operator == (GPoint &rhs) {
+			return (x == rhs.x && y == rhs.y);
+		}
+		bool operator != (GPoint &rhs) {
+			return !(*this == rhs);
+		}
+	};
+}

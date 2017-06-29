@@ -11,9 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Blackboard\Blackboard.hpp" />
     <ClInclude Include="include\Colliders\OBB.h" />
     <ClInclude Include="include\Colour.h" />
     <ClInclude Include="include\Components\AIController.h" />
+    <ClInclude Include="include\Components\AllComponents.h" />
     <ClInclude Include="include\Components\CComponent.h" />
     <ClInclude Include="include\Components\CRigidBody.h" />
     <ClInclude Include="include\Components\CSpriteNode.h" />
@@ -31,7 +33,6 @@
     <ClInclude Include="include\ShooterGameApp.h" />
     <ClInclude Include="include\StateMachine\AI\AISeekState.h" />
     <ClInclude Include="include\StateMachine\AI\AIWanderState.h" />
-    <ClInclude Include="include\StateMachine\AI\Behaviours\SteeringBehaviour.h" />
     <ClInclude Include="include\StateMachine\AI\IAIState.h" />
     <ClInclude Include="include\StateMachine\AI\Behaviours\ISteeringForce.h" />
     <ClInclude Include="include\StateMachine\Game\GameState.h" />
@@ -70,7 +71,6 @@
     <ClCompile Include="source\StateMachine\Game\SplashState.cpp" />
     <ClCompile Include="source\Components\CSpriteNode.cpp" />
     <ClCompile Include="source\Components\CWeapon.cpp" />
-    <ClCompile Include="source\StateMachine\AI\Behaviours\SteeringBehaviour.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

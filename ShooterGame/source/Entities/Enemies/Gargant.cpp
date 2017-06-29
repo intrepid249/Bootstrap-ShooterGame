@@ -4,17 +4,29 @@
 
 #include <Components\AIController.h>
 #include <StateMachine\AI\AIWanderState.h>
+#include <StateMachine\AI\AISeekState.h>
 
+#include <Components\CRigidBody.h>
 
 Gargant::Gargant() {
 }
 
-Gargant::Gargant(aie::Texture * tex) : GameEntity(tex) {
-	std::unique_ptr<AIController> gController = std::unique_ptr<AIController>(new AIController);
-	gController->addState("wander", new AIWanderState(this));
-	gController->setState("wander");
+Gargant::Gargant(aie::Texture * tex, IGameState *_app) : GameEntity(tex, _app) {
+	AIController *gController = new AIController;
+	gController->addState("wander", std::shared_ptr<AIWanderState>(new AIWanderState(this)));
+
+	std::shared_ptr<AISeekState> seek = std::shared_ptr<AISeekState>(new AISeekState(this));
+	seek->setAgroRange(10);
+	seek->setTarget(Vector2<float>(50, 50));
+	seek->setParent(this);
+	gController->addState("seek", std::move(seek));
+	gController->setState("seek");
+
+	CRigidBody *rigidbody = new CRigidBody();
+	rigidbody->setParent(this);
 
 	addComponent(std::move(gController));
+	addComponent(std::move(rigidbody));
 }
 
 Gargant::~Gargant() {

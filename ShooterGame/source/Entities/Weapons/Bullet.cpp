@@ -5,7 +5,7 @@
 Bullet::Bullet() {
 }
 
-Bullet::Bullet(aie::Texture * tex) : GameEntity(tex) {
+Bullet::Bullet(aie::Texture * tex, IGameState *_app) : GameEntity(tex, _app) {
 	m_lifetime = m_lifetime;
 }
 

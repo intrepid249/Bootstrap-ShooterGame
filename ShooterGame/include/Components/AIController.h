@@ -2,6 +2,7 @@
 #include <Components\CComponent.h>
 #include <map>
 #include <Nodes\Node.h>
+#include <memory>
 
 class IAIState;
 
@@ -15,12 +16,12 @@ public:
 	/** Process the current active state*/
 	void update(float dt);
 	/** Register a new state*/
-	void addState(const char *name, IAIState *state);
+	void addState(const char *name, std::shared_ptr<IAIState> state);
 	/** Set the currently active state*/
 	void setState(const char *name);
 
 private:
-	std::map<const char *, IAIState*> m_states;
+	std::map<const char *, std::shared_ptr<IAIState>> m_states;
 	IAIState *m_activeState;
 };
 

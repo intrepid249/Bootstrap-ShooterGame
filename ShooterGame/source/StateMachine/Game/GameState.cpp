@@ -26,15 +26,21 @@ GameState::GameState(ShooterGameApp *app) : IGameState(app) {
 	m_elapsedTime = 0;
 
 	m_textures[PLAYER_TEX] = ResourceManager::loadSharedResource<aie::Texture>("./textures/player_handgun.png");
-	m_player = std::unique_ptr<Player>(new Player(m_textures[PLAYER_TEX].get()));
-	m_player->translate(Vector2<float>(500, 500));
+	std::shared_ptr<Player> player = std::shared_ptr<Player>(new Player(m_textures[PLAYER_TEX].get(), this));
+	player->translate(Vector2<float>(500, 500));
+
+	m_entities.push_back(player);
 
 	m_textures[GARGANT_TEX] = ResourceManager::loadSharedResource<aie::Texture>("./textures/gargant.png");
 	//m_gargant = std::unique_ptr<Gargant>(new Gargant(m_textures[GARGANT_TEX].get()));
-	m_gargant = EnemyFactory::spawn("gargant", m_textures[GARGANT_TEX].get());
-	m_gargant->translate(Vector2<float>(300, 300));
+	std::shared_ptr<GameEntity> gargant = EnemyFactory::spawn("gargant", m_textures[GARGANT_TEX].get(), this);
+	gargant->translate(Vector2<float>(300, 300));
+	gargant->scale(Vector2<float>(2, 2));
 
-	strcpy_s(m_windowTitle, "Endlesssss");
+
+	m_entities.push_back(gargant);
+
+	strcpy_s(m_windowTitle, "");
 }
 
 GameState::~GameState() {
@@ -66,8 +72,8 @@ void GameState::update(float dt) {
 		getApp()->getGameStateManager()->pushState((int)eGameStateID::PAUSE_STATE);
 	}
 
-	m_player->update(dt);
-	m_gargant->update(dt);
+	for (auto iter = m_entities.begin(); iter != m_entities.end(); iter++)
+		(*iter)->update(dt);
 
 	ImGui::Render();
 }
@@ -76,9 +82,13 @@ void GameState::render(aie::Renderer2D * renderer) {
 	char buffer[255];
 	sprintf_s(buffer, "%.2f", m_elapsedTime);
 
-	m_player->render(renderer);
-	m_gargant->render(renderer);
+	for (auto iter = m_entities.begin(); iter != m_entities.end(); iter++)
+		(*iter)->render(renderer);
 
 	renderer->drawText(m_font.get(), buffer, 10, 30);
 	renderer->drawText(m_font.get(), "Game State", 10, 10);
+}
+
+std::vector<std::shared_ptr<GameEntity>> GameState::getWorldEntities() {
+	return m_entities;
 }

@@ -34,6 +34,8 @@ public:
 
 	/** Set the upper-heirachy for coupling transform calculations*/
 	void setParent(Node *parent);
+	/** Retrieve the upper-heirachy*/
+	Node* getParent() const { return m_parent; }
 
 	/** Sets the draw flag for the object*/
 	void setDrawn(bool flag);

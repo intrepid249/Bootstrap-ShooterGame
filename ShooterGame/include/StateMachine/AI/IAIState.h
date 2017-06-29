@@ -15,6 +15,9 @@ public:
 	virtual void exitActions() = 0;
 	virtual const char * checkConditions() = 0;
 
+	void setParent(GameEntity *_parent) { m_parent = _parent; }
+	GameEntity *getParent() const { return m_parent; }
+
 protected:
 	GameEntity *m_parent;
 };

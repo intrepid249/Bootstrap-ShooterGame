@@ -5,9 +5,7 @@
 
 #include <Colliders\OBB.h>
 #include <Entities\GameEntity.h>
-#include <Components\CComponent.h>
-#include <Components\CSpriteNode.h>
-#include <Components\CPlayerController.h>
+#include <Components\AllComponents.h>
 
 #include <jm_utility.h>
 using namespace instanceof;
@@ -16,17 +14,17 @@ using namespace instanceof;
 GameEntity::GameEntity() {
 }
 
-GameEntity::GameEntity(aie::Texture * tex) : m_particleType(tex) {
+GameEntity::GameEntity(aie::Texture * tex, IGameState *_app) : m_particleType(tex), m_app(_app) {
 	/// COMPONENTS
 	// Add a sprite component to draw the entity
-	std::shared_ptr<CSpriteNode> sprite = std::shared_ptr<CSpriteNode>(new CSpriteNode(tex));
+	CSpriteNode *sprite = new CSpriteNode(tex);
 	sprite->setOrigin(Vector2<float>(0.35f, 0.4f));
 	sprite->scale(Vector2<float>(0.4f, 0.4f));
 	sprite->setParent(this);
 
 	// OBB
-	std::shared_ptr<OBB> obb = std::shared_ptr<OBB>(new OBB((float)tex->getWidth() * sprite->getScale().x, (float)tex->getHeight() * sprite->getScale().y));
-	m_collider = obb.get();
+	OBB *obb = new OBB((float)tex->getWidth() * sprite->getScale().x, (float)tex->getHeight() * sprite->getScale().y);
+	m_collider = obb;
 	obb->setParent(this);
 
 	addComponent(std::move(sprite));
@@ -35,6 +33,8 @@ GameEntity::GameEntity(aie::Texture * tex) : m_particleType(tex) {
 
 
 GameEntity::~GameEntity() {
+	for (auto iter = m_components.begin(); iter != m_components.end(); iter++)
+		delete (*iter);
 }
 
 void GameEntity::update(float dt) {
@@ -42,15 +42,6 @@ void GameEntity::update(float dt) {
 		Node::update(dt);
 		for (size_t i = 0; i < m_components.size(); ++i)
 			m_components[i]->update(dt);
-	}
-}
-
-template <typename T>
-T& GameEntity::getComponentOfType() {
-	for (auto iter = m_components.begin(); iter != m_components.end(); iter++) {
-		if (dynamic_cast<T>(*iter) != nullptr) {
-			return (*iter);
-		}
 	}
 }
 
@@ -78,6 +69,6 @@ aie::Texture * GameEntity::getParticleType() {
 	return m_particleType;
 }
 
-void GameEntity::addComponent(std::shared_ptr<CComponent> component) {
+void GameEntity::addComponent(CComponent *component) {
 	m_components.push_back(component);
 }

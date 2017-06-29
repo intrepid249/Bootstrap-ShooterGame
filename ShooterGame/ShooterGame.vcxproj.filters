@@ -108,10 +108,13 @@
     <ClInclude Include="include\StateMachine\AI\Behaviours\ISteeringForce.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\StateMachine\AI\Behaviours\SteeringBehaviour.h">
+    <ClInclude Include="include\StateMachine\AI\AISeekState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\StateMachine\AI\AISeekState.h">
+    <ClInclude Include="include\Components\AllComponents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Blackboard\Blackboard.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -183,9 +186,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Components\CRigidBody.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\StateMachine\AI\Behaviours\SteeringBehaviour.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\StateMachine\AI\AISeekState.cpp">
