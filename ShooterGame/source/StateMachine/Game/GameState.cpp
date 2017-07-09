@@ -48,6 +48,8 @@ GameState::~GameState() {
 
 void GameState::update(float dt) {
 
+// Display ImGUI editing window in debug mode
+#ifdef _DEBUG
 	//https://github.com/ocornut/imgui/blob/master/examples/opengl3_example/main.cpp
 	//https://eliasdaler.github.io/using-imgui-with-sfml-pt1/
 	//https://eliasdaler.github.io/using-imgui-with-sfml-pt2/
@@ -59,6 +61,16 @@ void GameState::update(float dt) {
 
 	if (ImGui::Button("Update Window Title"))
 		glfwSetWindowTitle(getApp()->getWindowPtr(), m_windowTitle);
+
+	// Show a menu to allow for background sprite tile editing
+	ImGui::Begin("Background Tile Editor", (bool*)1);
+	{
+		// TODO: Implement a background tile-sheet editor
+	}
+	ImGui::End();
+
+#endif // _DEBUG
+
 
 
 	if (getApp()->getGameStateManager()->getTopState() != this) return;

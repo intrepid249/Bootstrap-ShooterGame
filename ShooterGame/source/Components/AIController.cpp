@@ -35,3 +35,10 @@ void AIController::setState(const char * newStateName) {
 	m_activeState = m_states[newStateName].get();
 	m_activeState->entryActions();
 }
+
+IAIState * AIController::getRegisteredState(const char * name) const {
+	if (m_states.find(name)->first != nullptr)
+		return m_states.find(name)->second.get();
+
+	return nullptr;
+}

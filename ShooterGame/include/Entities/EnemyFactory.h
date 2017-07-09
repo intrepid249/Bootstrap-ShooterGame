@@ -1,13 +1,13 @@
 #pragma once
-#include <Entities\GameEntity.h>
-#include <Entities\Enemies\Gargant.h>
+#include <memory>
 
 namespace aie {
 	class Texture;
 }
 class IGameState;
+class GameEntity;
 
-class EnemyFactory : public GameEntity {
+class EnemyFactory {
 public:
 	EnemyFactory();
 	~EnemyFactory();

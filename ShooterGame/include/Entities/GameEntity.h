@@ -2,6 +2,7 @@
 #include <Nodes/Node.h>
 #include <memory>
 #include <vector>
+#include <Vector2.h>
 
 class CComponent;
 class OBB;
@@ -37,6 +38,9 @@ public:
 	/** Attain external access to a component of a defined type*/
 	template<typename T>
 	T * getComponentOfType();
+
+	/** Return any entities that are nearby*/
+	GameEntity *getNearbyEntity(float range = 100.0);
 
 
 	/** Get a pointer to the particle texture*/

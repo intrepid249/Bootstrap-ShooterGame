@@ -240,6 +240,13 @@ auto main(int argc, char** argv) -> int {
 
 #endif
 
+	ArrayList<string> lll;
+	lll.push_back("test");
+	lll.push_back("test234");
+
+	for (auto word : lll)
+		std::cout << word << "\n";
+
 	int result = Catch::Session().run(argc, argv);
 
 	Sleep(10000);

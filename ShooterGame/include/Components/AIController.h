@@ -20,6 +20,10 @@ public:
 	/** Set the currently active state*/
 	void setState(const char *name);
 
+	/** Function returns a pointer to the matching value mapped to the given index (if found)
+	 if no match is found, returns nullptr*/
+	IAIState *getRegisteredState(const char * name) const;
+
 private:
 	std::map<const char *, std::shared_ptr<IAIState>> m_states;
 	IAIState *m_activeState;

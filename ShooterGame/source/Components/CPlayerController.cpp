@@ -4,6 +4,9 @@
 #include <Utility.h>
 #include <Input.h>
 
+#include <Entities\GameEntity.h>
+#include <Components\CSpriteNode.h>
+
 
 CPlayerController::CPlayerController() : m_speed(125), m_moveFW(false), m_moveBW(false), m_moveL(false), m_moveR(false) {
 }
@@ -73,5 +76,11 @@ void CPlayerController::faceAtMouse(int mouseX, int mouseY) {
 	Matrix3<float> gMat = m_parent->getTransform();
 	Vector2<float> pos = gMat.getTranslation();
 
-	m_parent->setRotate(atan2(mouseY - pos.y, mouseX - pos.x));
+
+	float rot = atan2(mouseY - pos.y, mouseX - pos.x);
+
+	m_parent->setRotate(rot);
+	static_cast<GameEntity*>(m_parent)->getComponentOfType<CSpriteNode>()->setRotate(rot);
+	// TODO: Refactor OBB to a component -> Or have RigidBody handle collision???
+	//static_cast<GameEntity*>(m_parent)->getComponentOfType<OBB>()->setRotate(rot);
 }

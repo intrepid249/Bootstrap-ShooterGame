@@ -2,10 +2,11 @@
 #include <Vector2.h>
 
 class CRigidBody;
+class GameEntity;
 
 class ISteeringForce {
 public:
-	ISteeringForce() : m_target(Vector2<float>(-1, -1)), m_agroRange(-1) {}
+	ISteeringForce() : m_targetPos(Vector2<float>(-1, -1)), m_targetObj(nullptr), m_agroRange(-1) {}
 	virtual ~ISteeringForce() = default;
 
 	virtual Vector2<float> getForce() const = 0;
@@ -15,5 +16,6 @@ public:
 
 protected:
 	float m_agroRange;
-	Vector2<float> m_target;
+	Vector2<float> m_targetPos;
+	GameEntity *m_targetObj;
 };

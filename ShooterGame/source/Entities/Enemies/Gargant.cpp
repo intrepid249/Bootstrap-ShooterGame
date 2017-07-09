@@ -16,11 +16,10 @@ Gargant::Gargant(aie::Texture * tex, IGameState *_app) : GameEntity(tex, _app) {
 	gController->addState("wander", std::shared_ptr<AIWanderState>(new AIWanderState(this)));
 
 	std::shared_ptr<AISeekState> seek = std::shared_ptr<AISeekState>(new AISeekState(this));
-	seek->setAgroRange(10);
-	seek->setTarget(Vector2<float>(50, 50));
+	seek->setAgroRange(150);
 	seek->setParent(this);
 	gController->addState("seek", std::move(seek));
-	gController->setState("seek");
+	gController->setState("wander");
 
 	CRigidBody *rigidbody = new CRigidBody();
 	rigidbody->setParent(this);

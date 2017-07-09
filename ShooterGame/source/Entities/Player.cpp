@@ -4,6 +4,7 @@
 
 #include <Components\CPlayerController.h>
 #include <Components\CWeapon.h>
+#include <Components\CSpriteNode.h>
 
 
 Player::Player() {
@@ -11,6 +12,8 @@ Player::Player() {
 
 Player::Player(aie::Texture * tex, IGameState *_app) : GameEntity(tex, _app) {
 	/// COMPONENTS
+	getComponentOfType<CSpriteNode>()->scale(Vector2<float>(0.3f, 0.3f));
+
 	// Add a player controller component
 	CPlayerController *pController = new CPlayerController();
 	pController->setControls(aie::INPUT_KEY_W, aie::INPUT_KEY_S, aie::INPUT_KEY_A, aie::INPUT_KEY_D);

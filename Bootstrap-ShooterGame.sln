@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShooterGame", "ShooterGame\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ContainerLibrary", "ContainerLibrary\ContainerLibrary.vcxproj", "{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlackboardingTest", "BlackboardingTest\BlackboardingTest.vcxproj", "{6B131BDB-CED4-44CF-8CE9-8EC05BB1E9F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Release|x64.Build.0 = Release|x64
 		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Release|x86.ActiveCfg = Release|Win32
 		{00353830-853D-4BB7-BE3C-C5D5F2C2A9A2}.Release|x86.Build.0 = Release|Win32
+		{6B131BDB-CED4-44CF-8CE9-8EC05BB1E9F3}.Debug|x64.ActiveCfg = Debug|x64
+		{6B131BDB-CED4-44CF-8CE9-8EC05BB1E9F3}.Debug|x64.Build.0 = Debug|x64
+		{6B131BDB-CED4-44CF-8CE9-8EC05BB1E9F3}.Debug|x86.ActiveCfg = Debug|Win32
+		{6B131BDB-CED4-44CF-8CE9-8EC05BB1E9F3}.Debug|x86.Build.0 = Debug|Win32
+		{6B131BDB-CED4-44CF-8CE9-8EC05BB1E9F3}.Release|x64.ActiveCfg = Release|x64
+		{6B131BDB-CED4-44CF-8CE9-8EC05BB1E9F3}.Release|x64.Build.0 = Release|x64
+		{6B131BDB-CED4-44CF-8CE9-8EC05BB1E9F3}.Release|x86.ActiveCfg = Release|Win32
+		{6B131BDB-CED4-44CF-8CE9-8EC05BB1E9F3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
