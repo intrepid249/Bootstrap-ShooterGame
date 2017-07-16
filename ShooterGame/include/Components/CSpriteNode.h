@@ -27,6 +27,8 @@ public:
 
 	/** Scale the image by given amount*/
 	void scale(Vector2<float> _scale);
+	/** Get the amount of scaling applied*/
+	Vector2<float> getScale();
 	
 	/** Set the rendering offset of the Sprite Node - transformation anchor*/
 	void setOrigin(const Vector2<float> &origin);
@@ -50,7 +52,7 @@ public:
 
 protected:
 	aie::Texture *m_sprite;
-	Vector2<float> m_size;
+	Vector2<float> m_size, m_scale;
 	Vector2<float> m_origin = Vector2<float>(0.5f, 0.5f);		// Transformation anchor - defaults to centre of image
 	GameEntity* m_parent;
 	float m_rotation;

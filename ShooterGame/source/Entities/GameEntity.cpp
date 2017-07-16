@@ -24,12 +24,11 @@ GameEntity::GameEntity(aie::Texture * tex, IGameState *_app) : m_particleType(te
 
 	// OBB
 	//OBB *obb = new OBB((float)tex->getWidth() * sprite->getScale().x, (float)tex->getHeight() * sprite->getScale().y);
-	OBB *obb = new OBB((float)tex->getWidth() * sprite->getSize().x, (float)tex->getHeight() * sprite->getSize().y);
-	m_collider = obb;
-	obb->setParent(this);
+	//m_collider = obb;
+	//obb->setParent(this);
 
 	addComponent(std::move(sprite));
-	addComponent(std::move(obb));
+	//addComponent(std::move(obb));
 }
 
 

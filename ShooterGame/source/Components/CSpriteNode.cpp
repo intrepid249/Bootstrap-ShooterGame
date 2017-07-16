@@ -7,7 +7,7 @@ CSpriteNode::CSpriteNode() {
 }
 
 CSpriteNode::CSpriteNode(aie::Texture *m_tex) : m_sprite(m_tex), m_rotation(0), m_parent(nullptr),
-	m_size(Vector2<float>((float)m_tex->getWidth(), (float)m_tex->getHeight())) {
+	m_size(Vector2<float>((float)m_tex->getWidth(), (float)m_tex->getHeight())), m_scale(Vector2<float>()) {
 }
 
 
@@ -31,6 +31,11 @@ Vector2<float> & CSpriteNode::getSize() {
 void CSpriteNode::scale(Vector2<float> _scale) {
 	m_size.x *= _scale.x;
 	m_size.y *= _scale.y;
+	m_scale = _scale;
+}
+
+Vector2<float> CSpriteNode::getScale() {
+	return m_scale;
 }
 
 void CSpriteNode::setOrigin(const Vector2<float> &origin) {

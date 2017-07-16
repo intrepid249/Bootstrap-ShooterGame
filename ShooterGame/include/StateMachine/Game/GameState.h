@@ -4,6 +4,8 @@
 #include <memory>
 #include <map>
 #include <vector>
+#include <Vector2.h>
+#include <Settings.h>
 
 class GameEntity;
 class Player;
@@ -36,5 +38,8 @@ protected:
 	char m_windowTitle[255];
 	int *m_windowWidth, *m_windowHeight;
 	bool *m_windowFullscreen;
+
+	/// PATHFINDING
+	Vector2<int> m_mapSize, m_gridSize, m_gridCellSize;
 };
 

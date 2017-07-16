@@ -3,6 +3,8 @@
 #include <memory>
 
 #include <Components\AIController.h>
+#include <Components\CSpriteNode.h>
+
 #include <StateMachine\AI\AIWanderState.h>
 #include <StateMachine\AI\AISeekState.h>
 
@@ -12,6 +14,8 @@ Gargant::Gargant() {
 }
 
 Gargant::Gargant(aie::Texture * tex, IGameState *_app) : GameEntity(tex, _app) {
+	getComponentOfType<CSpriteNode>()->scale(Vector2<float>(0.5f, 0.5f));
+
 	AIController *gController = new AIController;
 	gController->addState("wander", std::shared_ptr<AIWanderState>(new AIWanderState(this)));
 
